@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #f5f4ee;
+  --color-foreground: #111715;
+  --color-surface: #ffffff;
+  --color-surface-alt: #ebefe8;
+  --color-surface-dark: #121816;
+  --color-brand: #1ab248;
+  --color-brand-deep: #117135;
+  --color-brand-soft: #ddf4e5;
+  --color-line: #d6ddd6;
+  --color-muted: #60706a;
+  --color-muted-strong: #2d3935;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --shadow-panel: 0 20px 60px rgba(17, 23, 21, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(26, 178, 72, 0.08), transparent 28%),
+    linear-gradient(180deg, #f7f6f1 0%, #f2f0e9 100%);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17, 23, 21, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 23, 21, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 90%);
+}
+
+::selection {
+  background: rgba(26, 178, 72, 0.22);
+  color: #0d1311;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+summary {
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+.container-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1280px;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-shell {
+    padding-inline: 2rem;
+  }
+}
+
+.surface-card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(17, 23, 21, 0.09);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(10px);
+}
+
+.surface-dark {
+  background:
+    linear-gradient(180deg, rgba(17, 23, 21, 0.96) 0%, rgba(17, 23, 21, 0.9) 100%),
+    linear-gradient(135deg, rgba(26, 178, 72, 0.18), transparent 55%);
+}
+
+.mesh-accent {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.editorial-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -35% auto;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 9999px;
+  background: rgba(26, 178, 72, 0.08);
+  filter: blur(12px);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
