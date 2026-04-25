@@ -9,7 +9,7 @@ export function Container({
   className?: string;
   children: React.ReactNode;
 }) {
-  return <div className={cn("container-shell", className)}>{children}</div>;
+  return <div className={cn("container-shell min-w-0", className)}>{children}</div>;
 }
 
 export function Eyebrow({
@@ -45,11 +45,11 @@ export function SectionHeading({
   inverse?: boolean;
 }) {
   return (
-    <div className="max-w-3xl space-y-4">
+    <div className="max-w-3xl min-w-0 space-y-4">
       {eyebrow ? <Eyebrow inverse={inverse}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
-          "text-balance text-3xl font-semibold tracking-[-0.04em] sm:text-4xl lg:text-5xl",
+          "text-balance text-3xl leading-[0.98] font-semibold tracking-[-0.045em] sm:text-4xl lg:text-[3.4rem]",
           inverse ? "text-white" : "text-foreground",
         )}
       >
@@ -90,7 +90,7 @@ export function ButtonLink({
   className?: string;
 }) {
   const baseClassName = cn(
-    "inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold tracking-[-0.01em]",
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold tracking-[-0.01em] whitespace-nowrap",
     buttonVariants[variant],
     className,
   );
@@ -138,36 +138,44 @@ export function InlineLink({
 export function MetricStrip({
   items,
   inverse,
+  className,
+  itemClassName,
 }: {
   items: Array<{ label: string; value: string }>;
   inverse?: boolean;
+  className?: string;
+  itemClassName?: string;
 }) {
   return (
     <div
       className={cn(
         "grid gap-4 sm:grid-cols-2 xl:grid-cols-4",
         inverse ? "text-white" : "text-foreground",
+        className,
       )}
     >
       {items.map((item) => (
         <div
           key={`${item.label}-${item.value}`}
           className={cn(
-            "rounded-[2rem] border p-5",
+            "rounded-[1.6rem] border p-5",
             inverse
               ? "border-white/12 bg-white/5"
               : "surface-card border-foreground/8 bg-white/75",
+            itemClassName,
           )}
         >
           <p
             className={cn(
-              "font-mono text-[0.7rem] uppercase tracking-[0.24em]",
+              "font-mono text-[0.68rem] uppercase tracking-[0.22em]",
               inverse ? "text-white/56" : "text-muted",
             )}
           >
             {item.label}
           </p>
-          <p className="mt-3 text-lg font-semibold tracking-[-0.03em]">{item.value}</p>
+          <p className="mt-3 text-base leading-6 font-semibold tracking-[-0.03em] sm:text-lg">
+            {item.value}
+          </p>
         </div>
       ))}
     </div>

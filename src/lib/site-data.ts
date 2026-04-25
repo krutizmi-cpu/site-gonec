@@ -118,7 +118,7 @@ export const headerNavigation: NavItem[] = [
   { label: "Интернет-магазинам", href: "/online-stores" },
   { label: "Маркетплейсам", href: "/marketplaces" },
   { label: "Фулфилмент", href: "/fulfillment" },
-  { label: "Международная доставка", href: "/international" },
+  { label: "Международная", href: "/international" },
   { label: "Контакты", href: "/contacts" },
 ];
 

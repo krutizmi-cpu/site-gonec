@@ -50,13 +50,13 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
       <section className="pb-18 pt-10 sm:pb-24 sm:pt-14">
         <Container>
           <div className="editorial-frame surface-card rounded-[2.25rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div className="grid gap-10 lg:grid-cols-[1.25fr_.75fr]">
-              <div className="space-y-6">
+            <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
+              <div className="min-w-0 space-y-6 xl:col-span-7">
                 <Eyebrow>{page.eyebrow}</Eyebrow>
-                <h1 className="text-balance max-w-4xl text-4xl font-semibold tracking-[-0.06em] text-foreground sm:text-5xl lg:text-7xl">
+                <h1 className="text-balance max-w-[14ch] text-[2.9rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[4rem] lg:text-[4.75rem] xl:text-[5.35rem]">
                   {page.heroTitle}
                 </h1>
-                <p className="max-w-2xl text-lg leading-8 text-muted">
+                <p className="max-w-2xl text-lg leading-8 text-muted lg:text-[1.2rem]">
                   {page.heroDescription}
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row">
@@ -67,15 +67,20 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                 </div>
               </div>
 
-              <div className="surface-dark mesh-accent rounded-[2rem] border border-white/8 p-6 text-white">
+              <div className="surface-dark mesh-accent min-w-0 rounded-[2rem] border border-white/8 p-6 text-white xl:col-span-5 xl:p-7">
                 <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/46">
                   Кратко
                 </p>
-                <p className="mt-4 text-2xl font-semibold tracking-[-0.05em]">
+                <p className="mt-4 max-w-[18ch] text-[1.85rem] leading-[1.05] font-semibold tracking-[-0.05em]">
                   {page.description}
                 </p>
                 <div className="mt-8">
-                  <MetricStrip items={page.highlights} inverse />
+                  <MetricStrip
+                    items={page.highlights}
+                    inverse
+                    className="grid-cols-1 sm:grid-cols-2 xl:grid-cols-2"
+                    itemClassName="h-full"
+                  />
                 </div>
               </div>
             </div>
@@ -104,11 +109,11 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
       <section className="pb-18 sm:pb-24">
         <Container>
           <SectionHeading title={page.solutionsTitle} />
-          <div className="mt-10 grid gap-4 lg:grid-cols-12">
+          <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
             {page.solutions.map((item, index) => (
               <article
                 key={item.title}
-                className={`surface-card rounded-[2rem] border border-foreground/8 p-6 ${solutionSpans[index % solutionSpans.length]}`}
+                className={`surface-card flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 ${solutionSpans[index % solutionSpans.length]}`}
               >
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
                   Сценарий {index + 1}
@@ -127,11 +132,11 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
         <Container>
           <div className="surface-dark rounded-[2.5rem] border border-white/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <SectionHeading title={page.benefitsTitle} inverse />
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-3">
               {page.benefits.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6"
+                  className="flex h-full min-w-0 flex-col rounded-[1.75rem] border border-white/10 bg-white/5 p-6"
                 >
                   <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
                     {item.title}
@@ -158,7 +163,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
               {page.process.map((step, index) => (
                 <article
                   key={step.title}
-                  className="surface-card rounded-[1.9rem] border border-foreground/8 p-6"
+                  className="surface-card min-w-0 rounded-[1.9rem] border border-foreground/8 p-6"
                 >
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                     Шаг {index + 1}

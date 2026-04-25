@@ -34,10 +34,10 @@ export default function HomePage() {
       <section className="pb-18 pt-10 sm:pb-24 sm:pt-14">
         <Container>
           <div className="editorial-frame surface-card rounded-[2.4rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div className="grid gap-10 lg:grid-cols-[1.18fr_.82fr]">
-              <div className="space-y-6">
+            <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
+              <div className="min-w-0 space-y-6 xl:col-span-7">
                 <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
-                <h1 className="text-balance max-w-4xl text-4xl font-semibold tracking-[-0.06em] text-foreground sm:text-5xl lg:text-7xl">
+                <h1 className="text-balance max-w-[14ch] text-[2.9rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[4rem] lg:text-[4.8rem] xl:text-[5.4rem]">
                   Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
@@ -53,17 +53,22 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="space-y-5">
-                <div className="surface-dark mesh-accent rounded-[2rem] border border-white/8 p-6 text-white">
+              <div className="space-y-5 xl:col-span-5">
+                <div className="surface-dark mesh-accent min-w-0 rounded-[2rem] border border-white/8 p-6 text-white xl:p-7">
                   <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/44">
                     Позиционирование
                   </p>
-                  <p className="mt-4 text-2xl font-semibold tracking-[-0.05em]">
+                  <p className="mt-4 max-w-[18ch] text-[1.85rem] leading-[1.05] font-semibold tracking-[-0.05em]">
                     Локальный сервисный сайт, построенный в брендовом поле CDEK, но
                     с фокусом на реальные запросы Москвы и понятную конверсию.
                   </p>
                   <div className="mt-8">
-                    <MetricStrip items={homeHighlights} inverse />
+                    <MetricStrip
+                      items={homeHighlights}
+                      inverse
+                      className="grid-cols-1 sm:grid-cols-2 xl:grid-cols-2"
+                      itemClassName="h-full"
+                    />
                   </div>
                 </div>
 
@@ -95,13 +100,23 @@ export default function HomePage() {
             title="Структура сайта сразу делит поток по задачам, а не заставляет всех читать одно и то же"
             description="Это важно и для конверсии, и для SEO: каждая аудитория получает отдельную страницу, понятный язык и нужный CTA."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
             {audienceLinks.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`surface-card rounded-[2rem] border border-foreground/8 p-6 ${
-                  index % 3 === 0 ? "xl:translate-y-6" : ""
+                className={`surface-card flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 ${
+                  index === 0
+                    ? "xl:col-span-5"
+                    : index === 1
+                      ? "xl:col-span-4"
+                      : index === 2
+                        ? "xl:col-span-3"
+                        : index === 3
+                          ? "xl:col-span-4"
+                          : index === 4
+                            ? "xl:col-span-3"
+                            : "xl:col-span-5"
                 }`}
               >
                 <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
@@ -128,11 +143,11 @@ export default function HomePage() {
               title="Подача выдержана в бренде CDEK, а красота собирается через ритм, типографику и дисциплину интерфейса"
               description="Мы не уходим в яркий промо-хаос. Вся выразительность строится на фирменном зелёном, графитовых поверхностях, строгой сетке и спокойных переходах."
             />
-            <div className="grid gap-4">
+            <div className="grid auto-rows-fr gap-4">
               {coreAdvantages.map((item) => (
                 <article
                   key={item.title}
-                  className="surface-card rounded-[1.85rem] border border-foreground/8 p-6"
+                  className="surface-card flex h-full min-w-0 flex-col rounded-[1.85rem] border border-foreground/8 p-6"
                 >
                   <h3 className="text-xl font-semibold tracking-[-0.03em] text-foreground">
                     {item.title}
@@ -154,11 +169,11 @@ export default function HomePage() {
               description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
               inverse
             />
-            <div className="mt-10 grid gap-4 lg:grid-cols-12">
+            <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
               {serviceRails.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`rounded-[2rem] border border-white/10 bg-white/6 p-6 ${
+                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 bg-white/6 p-6 ${
                     index === 0 ? "lg:col-span-5" : index === 1 ? "lg:col-span-4" : "lg:col-span-3"
                   }`}
                 >

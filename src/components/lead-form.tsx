@@ -27,7 +27,7 @@ function Field({
   defaultValue?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm">
+    <label className="grid min-w-0 gap-2 text-sm">
       <span className="font-medium text-foreground">{label}</span>
       <input
         type={type}
@@ -36,7 +36,7 @@ function Field({
         defaultValue={defaultValue}
         placeholder={placeholder}
         className={cn(
-          "h-13 rounded-3xl border bg-white px-4 text-base outline-none placeholder:text-muted/70",
+          "min-h-[3.35rem] rounded-[1.35rem] border bg-white px-4 text-base outline-none placeholder:text-muted/70",
           error ? "border-red-400" : "border-foreground/10 focus:border-brand",
         )}
       />
@@ -95,7 +95,7 @@ export function LeadForm({
           name="service"
           defaultValue={defaultService || serviceOptions[0]}
           className={cn(
-            "h-13 rounded-3xl border bg-white px-4 text-base outline-none",
+            "min-h-[3.35rem] rounded-[1.35rem] border bg-white px-4 text-base outline-none",
             state.fieldErrors?.service
               ? "border-red-400"
               : "border-foreground/10 focus:border-brand",
@@ -120,7 +120,7 @@ export function LeadForm({
           rows={6}
           placeholder="Что нужно отправлять, как часто, по каким направлениям и какой результат нужен."
           className={cn(
-            "rounded-[1.5rem] border bg-white px-4 py-4 text-base outline-none placeholder:text-muted/70",
+            "min-h-[10rem] rounded-[1.35rem] border bg-white px-4 py-4 text-base outline-none placeholder:text-muted/70",
             state.fieldErrors?.message
               ? "border-red-400"
               : "border-foreground/10 focus:border-brand",
@@ -143,11 +143,11 @@ export function LeadForm({
         </span>
       </label>
 
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-6 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(26,178,72,0.22)] hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-80"
+          className="inline-flex min-h-[3.35rem] items-center justify-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(26,178,72,0.22)] hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-80"
         >
           {pending ? <LoaderCircle className="size-4 animate-spin" /> : null}
           Отправить заявку

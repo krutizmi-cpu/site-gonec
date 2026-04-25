@@ -31,6 +31,7 @@ body {
     linear-gradient(180deg, #f7f6f1 0%, #f2f0e9 100%);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
 body::before {
@@ -97,6 +98,15 @@ img {
   width: 100%;
   max-width: 1280px;
   padding-inline: 1rem;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 640px) {
