@@ -92,7 +92,16 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
               </div>
 
               {heroArtwork ? (
-                <div className="surface-card overflow-hidden rounded-[2rem] border border-foreground/8 xl:col-span-5">
+                <div className="surface-dark mesh-accent overflow-hidden rounded-[2rem] border border-white/8 xl:col-span-5">
+                  <div className="px-6 py-5 xl:px-7">
+                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/46">
+                      Кратко
+                    </p>
+                    <p className="mt-3 text-lg leading-7 text-white/72">
+                      {heroArtwork.description}
+                    </p>
+                  </div>
+                  <div className="border-t border-white/8" />
                   <div className="relative aspect-[4/3]">
                     <Image
                       src={heroArtwork.src}
@@ -102,14 +111,6 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                       className="object-cover"
                       sizes="(min-width: 1280px) 38vw, 100vw"
                     />
-                  </div>
-                  <div className="border-t border-foreground/8 px-6 py-5 xl:px-7">
-                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-muted">
-                      Кратко
-                    </p>
-                    <p className="mt-3 text-lg leading-7 text-muted">
-                      {heroArtwork.description}
-                    </p>
                   </div>
                 </div>
               ) : (

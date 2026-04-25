@@ -53,7 +53,18 @@ export default function HomePage() {
               </div>
 
               <div className="space-y-5 xl:col-span-5">
-                <div className="surface-card overflow-hidden rounded-[2rem] border border-foreground/8">
+                <div className="surface-dark mesh-accent overflow-hidden rounded-[2rem] border border-white/8">
+                  <div className="px-6 py-5 xl:px-7">
+                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/44">
+                      Позиционирование
+                    </p>
+                    <p className="mt-3 text-lg leading-7 text-white/72">
+                      Локальный сервисный сайт в брендовом поле CDEK: частные
+                      отправления, корпоративная логистика, e-commerce и
+                      фулфилмент в одной понятной системе.
+                    </p>
+                  </div>
+                  <div className="border-t border-white/8" />
                   <div className="relative aspect-[4/3]">
                     <Image
                       src="/hero-logistics-scene.svg"
@@ -63,16 +74,6 @@ export default function HomePage() {
                       className="object-cover"
                       sizes="(min-width: 1280px) 38vw, 100vw"
                     />
-                  </div>
-                  <div className="border-t border-foreground/8 px-6 py-5 xl:px-7">
-                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-muted">
-                      Позиционирование
-                    </p>
-                    <p className="mt-3 text-lg leading-7 text-muted">
-                      Локальный сервисный сайт в брендовом поле CDEK: частные
-                      отправления, корпоративная логистика, e-commerce и
-                      фулфилмент в одной понятной системе.
-                    </p>
                   </div>
                 </div>
 
@@ -166,28 +167,29 @@ export default function HomePage() {
 
       <section className="pb-18 sm:pb-24">
         <Container>
-          <div className="surface-card rounded-[2.5rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+          <div className="surface-dark rounded-[2.5rem] border border-white/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <SectionHeading
               eyebrow="Ключевые сервисы"
               title="Логика блоков выстроена как сервисная редактура, а не как набор одинаковых карточек"
               description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
+              inverse
             />
             <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
               {serviceRails.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 bg-white/70 p-6 ${
+                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 bg-white/6 p-6 ${
                     index === 0 ? "lg:col-span-5" : index === 1 ? "lg:col-span-4" : "lg:col-span-3"
                   }`}
                 >
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-muted">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/42">
                     {item.kicker}
                   </p>
-                  <h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                  <h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
-                  <InlineLink href={item.href} className="mt-5">
+                  <p className="mt-4 text-base leading-7 text-white/66">{item.description}</p>
+                  <InlineLink href={item.href} className="mt-5 text-brand-soft">
                     Открыть раздел
                   </InlineLink>
                 </article>
@@ -286,11 +288,11 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="rounded-[2rem] border border-brand/16 bg-brand-soft p-6">
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-brand-deep">
+              <div className="surface-dark rounded-[2rem] border border-white/8 p-6 text-white">
+                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-white/44">
                   Важно
                 </p>
-                <p className="mt-4 text-base leading-7 text-brand-deep">
+                <p className="mt-4 text-base leading-7 text-white/68">
                   На сайте отдельно показано, что фулфилмент относится к отдельной
                   инфраструктуре CDEK Fulfillment, а широкая сеть офисов и пунктов
                   выдачи — к другой части системы. Это помогает говорить по фактам и
