@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Script from "next/script";
 import { LeadForm } from "@/components/lead-form";
 import {
@@ -44,6 +45,29 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
   const faqSchema = buildFaqSchema(page.title, page.faq);
   const serviceOptions = Object.values(marketingPages).map((item) => item.label);
   const solutionSpans = ["lg:col-span-5", "lg:col-span-4", "lg:col-span-3", "lg:col-span-6"];
+  const heroArtwork =
+    page.slug === "marketplaces"
+      ? {
+          src: "/marketplaces-network-scene.svg",
+          alt: "Иллюстрация работы с маркетплейсами: склад, сортировка заказов, доставка и витрины продаж",
+          description:
+            "Единый контур для marketplace-логистики: заказы, маркировка, сортировка, отгрузки, возвраты и доставка по разным каналам.",
+        }
+      : page.slug === "fulfillment"
+        ? {
+            src: "/fulfillment-automation-scene.svg",
+            alt: "Иллюстрация фулфилмента: складские стеллажи, конвейеры, сортировка заказов и автоматизация сборки",
+            description:
+              "Фулфилмент как операционная система: хранение, сборка, автоматизация, упаковка и передача заказов в доставку.",
+          }
+        : page.slug === "international"
+          ? {
+              src: "/international-airfreight-scene.svg",
+              alt: "Иллюстрация международной доставки: аэропорт, грузовой терминал, самолёт и обработка грузов",
+              description:
+                "Международная доставка через авиа-контур: терминал, там, обработка отправлений и передача грузов на международный маршрут.",
+            }
+        : null;
 
   return (
     <>
@@ -53,7 +77,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
             <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
               <div className="min-w-0 space-y-6 xl:col-span-7">
                 <Eyebrow>{page.eyebrow}</Eyebrow>
-                <h1 className="text-balance max-w-[14ch] text-[2.9rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[4rem] lg:text-[4.75rem] xl:text-[5.35rem]">
+                <h1 className="text-balance max-w-[12ch] text-[2.8rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.75rem] lg:text-[4.35rem] xl:text-[4.9rem]">
                   {page.heroTitle}
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted lg:text-[1.2rem]">
@@ -67,22 +91,45 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                 </div>
               </div>
 
-              <div className="surface-dark mesh-accent min-w-0 rounded-[2rem] border border-white/8 p-6 text-white xl:col-span-5 xl:p-7">
-                <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/46">
-                  Кратко
-                </p>
-                <p className="mt-4 max-w-[18ch] text-[1.85rem] leading-[1.05] font-semibold tracking-[-0.05em]">
-                  {page.description}
-                </p>
-                <div className="mt-8">
-                  <MetricStrip
-                    items={page.highlights}
-                    inverse
-                    className="grid-cols-1 sm:grid-cols-2 xl:grid-cols-2"
-                    itemClassName="h-full"
-                  />
+              {heroArtwork ? (
+                <div className="surface-card overflow-hidden rounded-[2rem] border border-foreground/8 xl:col-span-5">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={heroArtwork.src}
+                      alt={heroArtwork.alt}
+                      fill
+                      priority
+                      className="object-cover"
+                      sizes="(min-width: 1280px) 38vw, 100vw"
+                    />
+                  </div>
+                  <div className="border-t border-foreground/8 px-6 py-5 xl:px-7">
+                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-muted">
+                      Кратко
+                    </p>
+                    <p className="mt-3 text-lg leading-7 text-muted">
+                      {heroArtwork.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="surface-dark mesh-accent min-w-0 rounded-[2rem] border border-white/8 p-6 text-white xl:col-span-5 xl:p-7">
+                  <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/46">
+                    Кратко
+                  </p>
+                  <p className="mt-4 max-w-[18ch] text-[1.85rem] leading-[1.05] font-semibold tracking-[-0.05em]">
+                    {page.description}
+                  </p>
+                  <div className="mt-8">
+                    <MetricStrip
+                      items={page.highlights}
+                      inverse
+                      className="grid-cols-1 sm:grid-cols-2 xl:grid-cols-2"
+                      itemClassName="h-full"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </Container>

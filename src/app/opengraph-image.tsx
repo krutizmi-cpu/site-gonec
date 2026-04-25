@@ -38,24 +38,27 @@ export default function OpengraphImage() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: 14,
+              gap: 18,
               fontSize: 28,
               opacity: 0.9,
             }}
           >
             <div
               style={{
-                height: 54,
-                width: 54,
+                height: 52,
+                width: 132,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                borderRadius: 999,
-                background: "#1ab248",
+                borderRadius: 9999,
+                background: "#ffffff",
                 fontWeight: 700,
+                color: "#158e3a",
+                fontSize: 28,
+                letterSpacing: "-0.06em",
               }}
             >
-              G
+              CDEK
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: 30, fontWeight: 700 }}>Гонецъ</span>

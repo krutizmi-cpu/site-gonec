@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   title: defaultMetadata.title,
   description: defaultMetadata.description,
   applicationName: companyInfo.shortName,
+  icons: {
+    icon: [{ url: "/brand/cdek-favicon.ico", type: "image/x-icon" }],
+    shortcut: "/brand/cdek-favicon.ico",
+    apple: "/brand/cdek-apple-touch-icon.png",
+  },
   keywords: [
     "СДЭК Москва",
     "пункт выдачи СДЭК Москва",

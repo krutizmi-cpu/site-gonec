@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { LeadForm } from "@/components/lead-form";
 import {
@@ -5,7 +6,6 @@ import {
   Container,
   Eyebrow,
   InlineLink,
-  MetricStrip,
   SectionHeading,
 } from "@/components/site-ui";
 import { buildPageMetadata } from "@/lib/seo";
@@ -15,7 +15,6 @@ import {
   contactChannels,
   coreAdvantages,
   detailsCards,
-  homeHighlights,
   launchSteps,
   serviceRails,
   sharedFaq,
@@ -37,7 +36,7 @@ export default function HomePage() {
             <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
               <div className="min-w-0 space-y-6 xl:col-span-7">
                 <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
-                <h1 className="text-balance max-w-[14ch] text-[2.9rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[4rem] lg:text-[4.8rem] xl:text-[5.4rem]">
+                <h1 className="text-balance max-w-[12ch] text-[2.8rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.7rem] lg:text-[4.35rem] xl:text-[4.85rem]">
                   Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
@@ -54,21 +53,26 @@ export default function HomePage() {
               </div>
 
               <div className="space-y-5 xl:col-span-5">
-                <div className="surface-dark mesh-accent min-w-0 rounded-[2rem] border border-white/8 p-6 text-white xl:p-7">
-                  <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/44">
-                    Позиционирование
-                  </p>
-                  <p className="mt-4 max-w-[18ch] text-[1.85rem] leading-[1.05] font-semibold tracking-[-0.05em]">
-                    Локальный сервисный сайт, построенный в брендовом поле CDEK, но
-                    с фокусом на реальные запросы Москвы и понятную конверсию.
-                  </p>
-                  <div className="mt-8">
-                    <MetricStrip
-                      items={homeHighlights}
-                      inverse
-                      className="grid-cols-1 sm:grid-cols-2 xl:grid-cols-2"
-                      itemClassName="h-full"
+                <div className="surface-card overflow-hidden rounded-[2rem] border border-foreground/8">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src="/hero-logistics-scene.svg"
+                      alt="Иллюстрация логистической экосистемы: склад, транспорт, доставка и маршруты"
+                      fill
+                      priority
+                      className="object-cover"
+                      sizes="(min-width: 1280px) 38vw, 100vw"
                     />
+                  </div>
+                  <div className="border-t border-foreground/8 px-6 py-5 xl:px-7">
+                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-muted">
+                      Позиционирование
+                    </p>
+                    <p className="mt-3 text-lg leading-7 text-muted">
+                      Локальный сервисный сайт в брендовом поле CDEK: частные
+                      отправления, корпоративная логистика, e-commerce и
+                      фулфилмент в одной понятной системе.
+                    </p>
                   </div>
                 </div>
 
@@ -100,12 +104,12 @@ export default function HomePage() {
             title="Структура сайта сразу делит поток по задачам, а не заставляет всех читать одно и то же"
             description="Это важно и для конверсии, и для SEO: каждая аудитория получает отдельную страницу, понятный язык и нужный CTA."
           />
-          <div className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-12">
             {audienceLinks.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`surface-card flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 ${
+                className={`surface-card group flex min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 hover:border-brand/24 hover:bg-white/92 ${
                   index === 0
                     ? "xl:col-span-5"
                     : index === 1
@@ -126,9 +130,9 @@ export default function HomePage() {
                   {item.title}
                 </h2>
                 <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
-                <InlineLink href={item.href} className="mt-5">
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-deep group-hover:text-brand">
                   Перейти на страницу
-                </InlineLink>
+                </span>
               </Link>
             ))}
           </div>
@@ -162,29 +166,28 @@ export default function HomePage() {
 
       <section className="pb-18 sm:pb-24">
         <Container>
-          <div className="surface-dark rounded-[2.5rem] border border-white/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+          <div className="surface-card rounded-[2.5rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <SectionHeading
               eyebrow="Ключевые сервисы"
               title="Логика блоков выстроена как сервисная редактура, а не как набор одинаковых карточек"
               description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
-              inverse
             />
             <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
               {serviceRails.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 bg-white/6 p-6 ${
+                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 bg-white/70 p-6 ${
                     index === 0 ? "lg:col-span-5" : index === 1 ? "lg:col-span-4" : "lg:col-span-3"
                   }`}
                 >
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/42">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-muted">
                     {item.kicker}
                   </p>
-                  <h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
+                  <h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-foreground">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-base leading-7 text-white/66">{item.description}</p>
-                  <InlineLink href={item.href} className="mt-5 text-brand-soft">
+                  <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                  <InlineLink href={item.href} className="mt-5">
                     Открыть раздел
                   </InlineLink>
                 </article>
@@ -283,11 +286,11 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="surface-dark rounded-[2rem] border border-white/8 p-6 text-white">
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-white/44">
+              <div className="rounded-[2rem] border border-brand/16 bg-brand-soft p-6">
+                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-brand-deep">
                   Важно
                 </p>
-                <p className="mt-4 text-base leading-7 text-white/68">
+                <p className="mt-4 text-base leading-7 text-brand-deep">
                   На сайте отдельно показано, что фулфилмент относится к отдельной
                   инфраструктуре CDEK Fulfillment, а широкая сеть офисов и пунктов
                   выдачи — к другой части системы. Это помогает говорить по фактам и

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteBrand } from "@/components/site-brand";
 import { Container } from "@/components/site-ui";
 import { companyInfo, contactChannels, footerNavigation } from "@/lib/site-data";
 
@@ -33,17 +34,7 @@ export function SiteFooter() {
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_.8fr_.8fr_.8fr]">
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="flex size-12 items-center justify-center rounded-full bg-brand text-base font-bold text-white">
-                G
-              </span>
-              <div>
-                <p className="text-xl font-semibold tracking-[-0.04em]">Гонецъ</p>
-                <p className="text-sm text-white/60">
-                  Сервисный сайт логистических решений в Москве
-                </p>
-              </div>
-            </div>
+            <SiteBrand variant="footer" className="w-fit" />
 
             <p className="max-w-xl text-sm leading-7 text-white/68">
               Сайт помогает быстро разобраться в сценариях доставки для частных
