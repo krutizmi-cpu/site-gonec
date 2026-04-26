@@ -33,7 +33,14 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
   const serviceOptions = Object.values(marketingPages).map((item) => item.label);
   const solutionSpans = ["lg:col-span-5", "lg:col-span-4", "lg:col-span-3", "lg:col-span-6"];
   const heroArtwork =
-    page.slug === "marketplaces"
+    page.slug === "private"
+      ? {
+          src: "/private-hero-cdek.png",
+          alt: "Иллюстрация для частных клиентов: офис приёма, маршруты, курьер, выдача и доставка посылок",
+          description:
+            "Путь частного отправления: приём, обработка, курьерский маршрут, выдача и доставка в одной понятной схеме.",
+        }
+      : page.slug === "marketplaces"
       ? {
           src: "/marketplaces-network-scene.svg",
           alt: "Иллюстрация работы с маркетплейсами: склад, сортировка заказов, доставка и витрины продаж",
@@ -62,11 +69,21 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
         <Container>
           <div className="editorial-frame surface-card section-shell rounded-[2.6rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-12">
-              <div className="min-w-0 space-y-7 xl:col-span-7">
+              <div
+                className={`min-w-0 space-y-7 ${
+                  page.slug === "private" ? "xl:col-span-6" : "xl:col-span-7"
+                }`}
+              >
                 <div className="eyebrow-grid pb-4">
                   <Eyebrow>{page.eyebrow}</Eyebrow>
                 </div>
-                <h1 className="display-font text-balance max-w-[11ch] text-[2.55rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.35rem] lg:text-[4rem] xl:text-[4.45rem]">
+                <h1
+                  className={`display-font text-balance leading-[0.92] font-semibold tracking-[-0.065em] text-foreground ${
+                    page.slug === "private"
+                      ? "max-w-[10ch] text-[2.35rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[3.9rem]"
+                      : "max-w-[11ch] text-[2.55rem] sm:text-[3.35rem] lg:text-[4rem] xl:text-[4.45rem]"
+                  }`}
+                >
                   {page.heroTitle}
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted lg:text-[1.18rem]">
@@ -90,21 +107,31 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
               </div>
 
               {heroArtwork ? (
-                <div className="surface-dark mesh-accent relative overflow-hidden rounded-[2.2rem] border border-white/8 xl:col-span-5">
-                  <div className="absolute left-5 top-5 z-10 inline-flex rounded-full border border-white/12 bg-white/8 px-3 py-2 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-white/74 backdrop-blur-md">
-                    Кратко
-                  </div>
-                  <div className="absolute bottom-5 left-5 right-5 z-10 rounded-[1.35rem] border border-white/10 bg-white/8 px-4 py-4 backdrop-blur-md">
-                    <p className="text-sm leading-6 text-white/76">{heroArtwork.description}</p>
-                  </div>
-                  <div className="relative aspect-[4/3]">
+                <div
+                  className={`relative overflow-hidden rounded-[2.2rem] border xl:pt-3 ${
+                    page.slug === "private"
+                      ? "surface-card border-foreground/8 bg-white/88 xl:col-span-6"
+                      : "surface-dark mesh-accent border-white/8 xl:col-span-5"
+                  }`}
+                >
+                  {page.slug !== "private" ? (
+                    <>
+                      <div className="absolute left-5 top-5 z-10 inline-flex rounded-full border border-white/12 bg-white/8 px-3 py-2 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-white/74 backdrop-blur-md">
+                        Кратко
+                      </div>
+                      <div className="absolute bottom-5 left-5 right-5 z-10 rounded-[1.35rem] border border-white/10 bg-white/8 px-4 py-4 backdrop-blur-md">
+                        <p className="text-sm leading-6 text-white/76">{heroArtwork.description}</p>
+                      </div>
+                    </>
+                  ) : null}
+                  <div className={`relative ${page.slug === "private" ? "aspect-[1.35/1]" : "aspect-[4/3]"}`}>
                     <Image
                       src={heroArtwork.src}
                       alt={heroArtwork.alt}
                       fill
                       priority
-                      className="object-cover"
-                      sizes="(min-width: 1280px) 38vw, 100vw"
+                      className={page.slug === "private" ? "object-contain object-center p-4 sm:p-6" : "object-cover"}
+                      sizes={page.slug === "private" ? "(min-width: 1280px) 44vw, 100vw" : "(min-width: 1280px) 38vw, 100vw"}
                     />
                   </div>
                 </div>

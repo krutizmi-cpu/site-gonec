@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
 import {
@@ -14,7 +14,6 @@ import {
 import { buildPageMetadata } from "@/lib/seo";
 import {
   audienceLinks,
-  companyInfo,
   contactChannels,
   coreAdvantages,
   detailsCards,
@@ -56,12 +55,12 @@ export default function HomePage() {
         <Container>
           <div className="editorial-frame surface-card section-shell rounded-[2.8rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-12">
-              <div className="min-w-0 space-y-7 xl:col-span-7">
+              <div className="min-w-0 space-y-7 xl:col-span-6">
                 <div className="eyebrow-grid pb-4">
                   <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
                 </div>
                 <div className="space-y-5">
-                  <h1 className="display-font text-balance max-w-[11ch] text-[2.7rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.5rem] lg:text-[4.15rem] xl:text-[4.7rem]">
+                  <h1 className="display-font text-balance max-w-[10ch] text-[2.45rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.1rem] lg:text-[3.65rem] xl:text-[4.05rem]">
                     Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                   </h1>
                   <p className="max-w-2xl text-lg leading-8 text-muted sm:text-[1.22rem]">
@@ -98,57 +97,17 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="space-y-5 xl:col-span-5 xl:pt-3">
-                <div className="surface-dark mesh-accent relative overflow-hidden rounded-[2.3rem] border border-white/8">
-                  <div className="absolute left-5 top-5 z-10 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur-md">
-                    <Sparkles className="size-3.5 text-brand-soft" />
-                    Экосистема сервисов
-                  </div>
-
-                  <div className="absolute bottom-5 left-5 right-5 z-10 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-[1.35rem] border border-white/10 bg-[#f7f6f1] px-4 py-3 text-foreground shadow-[0_14px_28px_rgba(0,0,0,0.2)]">
-                      <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted">
-                        Форматы
-                      </p>
-                      <p className="mt-2 text-sm font-semibold tracking-[-0.02em]">
-                        Офис, курьер, ПВЗ, фулфилмент
-                      </p>
-                    </div>
-                    <div className="rounded-[1.35rem] border border-white/10 bg-white/8 px-4 py-3 text-white backdrop-blur-md">
-                      <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-white/48">
-                        Фокус
-                      </p>
-                      <p className="mt-2 text-sm font-semibold tracking-[-0.02em] text-white/88">
-                        Москва · B2C · B2B · e-commerce
-                      </p>
-                    </div>
-                  </div>
-
+              <div className="xl:col-span-6 xl:pt-3">
+                <div className="surface-card overflow-hidden rounded-[2.3rem] border border-foreground/8 bg-white/88">
                   <div className="relative aspect-[4/3]">
                     <Image
-                      src="/hero-logistics-scene.svg"
-                      alt="Иллюстрация логистической экосистемы: склад, транспорт, доставка и маршруты"
+                      src="/hero-main-cdek.png"
+                      alt="Иллюстрация доставки: самолёт, склад, контейнеры, грузовой маршрут и логистическая инфраструктура"
                       fill
                       priority
-                      className="object-cover"
-                      sizes="(min-width: 1280px) 38vw, 100vw"
+                      className="object-cover object-center"
+                      sizes="(min-width: 1280px) 44vw, 100vw"
                     />
-                  </div>
-                </div>
-
-                <div className="surface-card rounded-[2rem] border border-foreground/8 p-6">
-                  <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
-                    Юридический блок
-                  </p>
-                  <p className="mt-4 text-xl font-semibold tracking-[-0.04em] text-foreground">
-                    {companyInfo.fullName}
-                  </p>
-                  <div className="mt-5 grid gap-2 text-sm text-muted">
-                    <p>ОГРН {companyInfo.ogrn}</p>
-                    <p>
-                      ИНН/КПП {companyInfo.inn} / {companyInfo.kpp}
-                    </p>
-                    <p>{companyInfo.address}</p>
                   </div>
                 </div>
               </div>
