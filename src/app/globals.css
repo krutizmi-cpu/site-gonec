@@ -192,6 +192,10 @@ img {
   box-shadow: var(--shadow-lift);
 }
 
+.card-lift:focus-within {
+  box-shadow: var(--shadow-lift);
+}
+
 .section-shell {
   position: relative;
 }
@@ -204,4 +208,18 @@ img {
   pointer-events: none;
   border: 1px solid rgba(255, 255, 255, 0.18);
   mask: linear-gradient(180deg, rgba(255, 255, 255, 0.88), transparent 46%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

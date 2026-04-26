@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion-primitives";
 import {
   ButtonLink,
   Container,
@@ -54,16 +55,16 @@ export default function HomePage() {
       <section className="pb-18 pt-12 sm:pb-24 sm:pt-16">
         <Container>
           <div className="editorial-frame surface-card section-shell rounded-[2.8rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-12">
-              <div className="min-w-0 space-y-7 xl:col-span-6">
+            <div className="grid items-center gap-8 xl:grid-cols-12 xl:gap-10">
+              <Reveal className="min-w-0 space-y-7 xl:col-span-5" x={-24}>
                 <div className="eyebrow-grid pb-4">
                   <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
                 </div>
                 <div className="space-y-5">
-                  <h1 className="display-font text-balance max-w-[10ch] text-[2.45rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.1rem] lg:text-[3.65rem] xl:text-[4.05rem]">
+                  <h1 className="display-font max-w-[10ch] text-[1.92rem] leading-[0.95] font-semibold tracking-[-0.055em] text-foreground text-balance sm:text-[2.35rem] lg:text-[2.75rem] xl:text-[3.05rem]">
                     Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                   </h1>
-                  <p className="max-w-2xl text-lg leading-8 text-muted sm:text-[1.22rem]">
+                  <p className="max-w-xl text-base leading-7 text-muted sm:text-[1.08rem] sm:leading-8">
                     Локальный сервисный офис в брендовом поле CDEK: от частных
                     отправлений и корпоративной логистики до e-commerce,
                     маркетплейсов и фулфилмент-сценариев.
@@ -95,95 +96,101 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Reveal>
 
-              <div className="xl:col-span-6 xl:pt-3">
-                <div className="surface-card overflow-hidden rounded-[2.3rem] border border-foreground/8 bg-white/88">
-                  <div className="relative aspect-[4/3]">
+              <Reveal className="xl:col-span-7 xl:pt-1" delay={0.08} x={24}>
+                <div className="surface-card overflow-hidden rounded-[2.5rem] border border-foreground/8 bg-white/92 p-2.5 shadow-[0_18px_40px_rgba(17,23,21,0.06)] sm:p-3.5">
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem] bg-[#f8faf8] sm:aspect-[16/10] xl:aspect-[16/10]">
                     <Image
                       src="/hero-main-cdek.png"
                       alt="Иллюстрация доставки: самолёт, склад, контейнеры, грузовой маршрут и логистическая инфраструктура"
                       fill
                       priority
-                      className="object-cover object-center"
-                      sizes="(min-width: 1280px) 44vw, 100vw"
+                      className="object-contain object-center"
+                      sizes="(min-width: 1280px) 52vw, 100vw"
                     />
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
 
-            <div className="mt-8">
+            <Reveal className="mt-8" delay={0.12}>
               <MetricStrip items={homeHighlights} />
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>
 
       <section className="pb-18 sm:pb-24">
         <Container>
-          <SectionHeading
-            eyebrow="Аудитории"
-            title="Структура сайта сразу делит поток по задачам, а не заставляет всех читать одно и то же"
-            description="Это важно и для конверсии, и для SEO: каждая аудитория получает отдельную страницу, понятный язык и нужный CTA."
-          />
-          <div className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Аудитории"
+              title="Структура сайта сразу делит поток по задачам, а не заставляет всех читать одно и то же"
+              description="Это важно и для конверсии, и для SEO: каждая аудитория получает отдельную страницу, понятный язык и нужный CTA."
+            />
+          </Reveal>
+          <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
             {audienceLinks.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`card-lift group relative flex min-w-0 flex-col overflow-hidden rounded-[2rem] border border-foreground/8 p-6 transition-transform duration-200 hover:-translate-y-1 hover:border-brand/24 ${audienceStyles[index]}`}
-              >
-                <div className="absolute inset-x-6 top-0 h-1 rounded-full bg-gradient-to-r from-brand/75 via-brand/20 to-transparent opacity-70" />
-                <div className="mb-8 flex items-center justify-between gap-4">
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
-                    Направление {index + 1}
-                  </p>
-                  <span className="inline-flex items-center rounded-full border border-foreground/8 bg-white/76 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-strong">
-                    {audienceBadges[index]}
+              <StaggerItem key={item.href} hover className={audienceStyles[index]}>
+                <Link
+                  href={item.href}
+                  className="card-lift group relative flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] border border-foreground/8 p-6 transition-transform duration-200 hover:-translate-y-1 hover:border-brand/24"
+                >
+                  <div className="absolute inset-x-6 top-0 h-1 rounded-full bg-gradient-to-r from-brand/75 via-brand/20 to-transparent opacity-70" />
+                  <div className="mb-8 flex items-center justify-between gap-4">
+                    <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
+                      Направление {index + 1}
+                    </p>
+                    <span className="inline-flex items-center rounded-full border border-foreground/8 bg-white/76 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-strong">
+                      {audienceBadges[index]}
+                    </span>
+                  </div>
+                  <h2 className="display-font text-[1.72rem] leading-[1.06] font-semibold tracking-[-0.045em] text-foreground sm:text-[1.95rem]">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand-deep group-hover:text-brand">
+                    Перейти на страницу
+                    <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </span>
-                </div>
-                <h2 className="display-font text-[1.72rem] leading-[1.06] font-semibold tracking-[-0.045em] text-foreground sm:text-[1.95rem]">
-                  {item.title}
-                </h2>
-                <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand-deep group-hover:text-brand">
-                  Перейти на страницу
-                  <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </span>
-              </Link>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </Container>
       </section>
 
       <section className="pb-18 sm:pb-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr]">
-            <SectionHeading
-              eyebrow="Как устроен сервис"
-              title="Подача выдержана в бренде CDEK, а красота собирается через ритм, типографику и дисциплину интерфейса"
-              description="Мы не уходим в яркий промо-хаос. Вся выразительность строится на фирменном зелёном, графитовых поверхностях, строгой сетке и спокойных переходах."
-              titleClassName="max-w-[11ch] text-[1.9rem] sm:text-[2.35rem] lg:text-[2.8rem]"
-            />
-            <div className="grid gap-4 md:grid-cols-2">
+            <Reveal x={-22}>
+              <SectionHeading
+                eyebrow="Как устроен сервис"
+                title="Подача выдержана в бренде CDEK, а красота собирается через ритм, типографику и дисциплину интерфейса"
+                description="Мы не уходим в яркий промо-хаос. Вся выразительность строится на фирменном зелёном, графитовых поверхностях, строгой сетке и спокойных переходах."
+                titleClassName="max-w-[12ch] text-[1.7rem] sm:text-[2rem] lg:text-[2.35rem]"
+              />
+            </Reveal>
+            <StaggerGroup className="grid gap-4 md:grid-cols-2">
               {coreAdvantages.map((item, index) => (
-                <article
-                  key={item.title}
-                  className={`surface-card card-lift flex h-full min-w-0 flex-col rounded-[1.85rem] border border-foreground/8 p-6 ${
-                    index === 0 || index === 3 ? "bg-white/94" : "bg-white/82"
-                  }`}
-                >
-                  <div className="mb-5 inline-flex size-11 items-center justify-center rounded-full border border-foreground/8 bg-white/80 text-sm font-semibold text-brand-deep shadow-[0_8px_18px_rgba(17,23,21,0.05)]">
-                    0{index + 1}
-                  </div>
-                  <h3 className="display-font text-[1.35rem] leading-[1.08] font-semibold tracking-[-0.035em] text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
-                </article>
+                <StaggerItem key={item.title} hover>
+                  <article
+                    className={`surface-card card-lift flex h-full min-w-0 flex-col rounded-[1.85rem] border border-foreground/8 p-6 ${
+                      index === 0 || index === 3 ? "bg-white/94" : "bg-white/82"
+                    }`}
+                  >
+                    <div className="mb-5 inline-flex size-11 items-center justify-center rounded-full border border-foreground/8 bg-white/80 text-sm font-semibold text-brand-deep shadow-[0_8px_18px_rgba(17,23,21,0.05)]">
+                      0{index + 1}
+                    </div>
+                    <h3 className="display-font text-[1.35rem] leading-[1.08] font-semibold tracking-[-0.035em] text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                  </article>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
         </Container>
       </section>
@@ -192,39 +199,46 @@ export default function HomePage() {
         <Container>
           <div className="surface-dark rounded-[2.5rem] border border-white/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
-              <SectionHeading
-                eyebrow="Ключевые сервисы"
-                title="Логика блоков выстроена как сервисная редактура, а не как набор одинаковых карточек"
-                description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
-                inverse
-              />
-              <div className="rounded-[1.9rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
-                Секции не конкурируют друг с другом за внимание: каждая отвечает на
-                свою задачу, а вместе они складываются в один спокойный маршрут до
-                заявки.
-              </div>
+              <Reveal x={-24}>
+                <SectionHeading
+                  eyebrow="Ключевые сервисы"
+                  title="Логика блоков выстроена как сервисная редактура, а не как набор одинаковых карточек"
+                  description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
+                  inverse
+                  titleClassName="max-w-[11ch] text-[1.85rem] sm:text-[2.2rem] lg:text-[2.6rem]"
+                  descriptionClassName="max-w-[30rem]"
+                />
+              </Reveal>
+              <Reveal delay={0.08}>
+                <div className="rounded-[1.9rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
+                  Секции не конкурируют друг с другом за внимание: каждая отвечает на
+                  свою задачу, а вместе они складываются в один спокойный маршрут до
+                  заявки.
+                </div>
+              </Reveal>
             </div>
-            <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
+            <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
               {serviceRails.map((item, index) => (
-                <article
-                  key={item.title}
-                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 p-6 ${
-                    index === 0 ? "bg-white/6 lg:col-span-5" : index === 1 ? "bg-white/9 lg:col-span-4" : "bg-white/6 lg:col-span-3"
-                  }`}
-                >
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/42">
-                    {item.kicker}
-                  </p>
-                  <h2 className="display-font mt-5 text-[1.7rem] leading-[1.06] font-semibold tracking-[-0.045em] text-white">
-                    {item.title}
-                  </h2>
-                  <p className="mt-4 text-base leading-7 text-white/66">{item.description}</p>
-                  <InlineLink href={item.href} className="mt-5 text-brand-soft">
-                    Открыть раздел
-                  </InlineLink>
-                </article>
+                <StaggerItem key={item.title} hover className={index === 0 ? "lg:col-span-5" : index === 1 ? "lg:col-span-4" : "lg:col-span-3"}>
+                  <article
+                    className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 p-6 ${
+                      index === 0 ? "bg-white/6" : index === 1 ? "bg-white/9" : "bg-white/6"
+                    }`}
+                  >
+                    <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/42">
+                      {item.kicker}
+                    </p>
+                    <h2 className="display-font mt-5 text-[1.7rem] leading-[1.06] font-semibold tracking-[-0.045em] text-white">
+                      {item.title}
+                    </h2>
+                    <p className="mt-4 text-base leading-7 text-white/66">{item.description}</p>
+                    <InlineLink href={item.href} className="mt-5 text-brand-soft">
+                      Открыть раздел
+                    </InlineLink>
+                  </article>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
         </Container>
       </section>
