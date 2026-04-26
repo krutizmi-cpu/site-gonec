@@ -77,7 +77,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
             <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
               <div className="min-w-0 space-y-6 xl:col-span-7">
                 <Eyebrow>{page.eyebrow}</Eyebrow>
-                <h1 className="text-balance max-w-[12ch] text-[2.8rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.75rem] lg:text-[4.35rem] xl:text-[4.9rem]">
+                <h1 className="text-balance max-w-[12ch] text-[2.45rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.2rem] lg:text-[3.9rem] xl:text-[4.25rem]">
                   {page.heroTitle}
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted lg:text-[1.2rem]">

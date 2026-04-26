@@ -38,19 +38,24 @@ export function SectionHeading({
   title,
   description,
   inverse,
+  className,
+  titleClassName,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   inverse?: boolean;
+  className?: string;
+  titleClassName?: string;
 }) {
   return (
-    <div className="max-w-3xl min-w-0 space-y-4">
+    <div className={cn("max-w-3xl min-w-0 space-y-4", className)}>
       {eyebrow ? <Eyebrow inverse={inverse}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
-          "text-balance text-3xl leading-[0.98] font-semibold tracking-[-0.045em] sm:text-4xl lg:text-[3.4rem]",
+          "text-balance text-[2rem] leading-[0.98] font-semibold tracking-[-0.045em] sm:text-[2.5rem] lg:text-[3rem]",
           inverse ? "text-white" : "text-foreground",
+          titleClassName,
         )}
       >
         {title}

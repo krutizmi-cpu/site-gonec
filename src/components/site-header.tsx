@@ -15,38 +15,42 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-foreground/8 bg-background/85 backdrop-blur-xl">
-      <Container className="flex h-[5rem] max-w-[1500px] items-center gap-3 2xl:grid 2xl:grid-cols-[15rem_minmax(0,1fr)_auto] 2xl:gap-6">
+      <Container className="flex h-[5rem] max-w-[1540px] items-center gap-3 2xl:grid 2xl:grid-cols-[auto_minmax(0,1fr)_auto] 2xl:gap-5">
         <SiteBrand className="mr-auto shrink-0 2xl:mr-0" />
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 2xl:flex">
-          {headerNavigation.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === item.href
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+        <div className="hidden min-w-0 2xl:block">
+          <nav className="no-scrollbar flex min-w-0 items-center justify-start gap-0.5 overflow-x-auto pr-2">
+            {headerNavigation.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === item.href
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative inline-flex min-h-11 items-center justify-center px-3 py-2 text-center text-[0.9rem] leading-tight font-medium whitespace-nowrap",
-                  isActive
-                    ? "text-foreground"
-                    : "text-muted hover:text-foreground",
-                )}
-              >
-                {item.label}
-                {isActive ? (
-                  <span className="absolute inset-x-4 -bottom-[1px] h-[3px] rounded-full bg-brand" />
-                ) : null}
-              </Link>
-            );
-          })}
-        </nav>
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative inline-flex h-11 shrink-0 items-center justify-center px-3 py-2 text-center text-[0.84rem] leading-tight font-medium whitespace-nowrap",
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted hover:text-foreground",
+                  )}
+                >
+                  {item.label}
+                  {isActive ? (
+                    <span className="absolute inset-x-3 -bottom-[1px] h-[3px] rounded-full bg-brand" />
+                  ) : null}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
 
         <div className="hidden shrink-0 2xl:block">
-          <ButtonLink href="/calculate">Запросить расчёт</ButtonLink>
+          <ButtonLink href="/calculate" className="px-4 text-[0.84rem]">
+            Запросить расчёт
+          </ButtonLink>
         </div>
 
         <div className="ml-auto flex items-center gap-2 2xl:ml-0 2xl:hidden">

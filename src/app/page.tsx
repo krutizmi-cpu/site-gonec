@@ -36,7 +36,7 @@ export default function HomePage() {
             <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
               <div className="min-w-0 space-y-6 xl:col-span-7">
                 <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
-                <h1 className="text-balance max-w-[12ch] text-[2.8rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.7rem] lg:text-[4.35rem] xl:text-[4.85rem]">
+                <h1 className="text-balance max-w-[12ch] text-[2.45rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.15rem] lg:text-[3.85rem] xl:text-[4.2rem]">
                   Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
@@ -105,33 +105,21 @@ export default function HomePage() {
             title="Структура сайта сразу делит поток по задачам, а не заставляет всех читать одно и то же"
             description="Это важно и для конверсии, и для SEO: каждая аудитория получает отдельную страницу, понятный язык и нужный CTA."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-12">
+          <div className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
             {audienceLinks.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`surface-card group flex min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 hover:border-brand/24 hover:bg-white/92 ${
-                  index === 0
-                    ? "xl:col-span-5"
-                    : index === 1
-                      ? "xl:col-span-4"
-                      : index === 2
-                        ? "xl:col-span-3"
-                        : index === 3
-                          ? "xl:col-span-4"
-                          : index === 4
-                            ? "xl:col-span-3"
-                            : "xl:col-span-5"
-                }`}
+                className="surface-card group flex min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 hover:border-brand/24 hover:bg-white/92 xl:min-h-[18rem]"
               >
                 <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                   Направление {index + 1}
                 </p>
-                <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                <h2 className="mt-4 text-[1.8rem] leading-[1.08] font-semibold tracking-[-0.045em] text-foreground sm:text-[2rem]">
                   {item.title}
                 </h2>
                 <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-deep group-hover:text-brand">
+                <span className="mt-auto pt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-deep group-hover:text-brand">
                   Перейти на страницу
                 </span>
               </Link>
@@ -147,6 +135,7 @@ export default function HomePage() {
               eyebrow="Как устроен сервис"
               title="Подача выдержана в бренде CDEK, а красота собирается через ритм, типографику и дисциплину интерфейса"
               description="Мы не уходим в яркий промо-хаос. Вся выразительность строится на фирменном зелёном, графитовых поверхностях, строгой сетке и спокойных переходах."
+              titleClassName="max-w-[11ch] text-[1.9rem] sm:text-[2.35rem] lg:text-[2.9rem]"
             />
             <div className="grid auto-rows-fr gap-4">
               {coreAdvantages.map((item) => (
