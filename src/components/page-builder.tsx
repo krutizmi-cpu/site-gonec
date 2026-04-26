@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
+import { CheckCircle2 } from "lucide-react";
+import { FaqAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
 import {
   ButtonLink,
@@ -19,22 +21,7 @@ import {
 import { buildFaqSchema } from "@/lib/site-schema";
 
 function FaqList({ items }: { items: FaqItem[] }) {
-  return (
-    <div className="grid gap-4">
-      {items.map((item, index) => (
-        <details
-          key={item.question}
-          className="surface-card group rounded-[1.75rem] border border-foreground/8 p-6"
-          open={index === 0}
-        >
-          <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-foreground">
-            {item.question}
-          </summary>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{item.answer}</p>
-        </details>
-      ))}
-    </div>
-  );
+  return <FaqAccordion items={items} />;
 }
 
 export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
@@ -71,37 +58,45 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
 
   return (
     <>
-      <section className="pb-18 pt-10 sm:pb-24 sm:pt-14">
+      <section className="pb-18 pt-12 sm:pb-24 sm:pt-16">
         <Container>
-          <div className="editorial-frame surface-card rounded-[2.25rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
-              <div className="min-w-0 space-y-6 xl:col-span-7">
-                <Eyebrow>{page.eyebrow}</Eyebrow>
-                <h1 className="text-balance max-w-[12ch] text-[2.45rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.2rem] lg:text-[3.9rem] xl:text-[4.25rem]">
+          <div className="editorial-frame surface-card section-shell rounded-[2.6rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+            <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-12">
+              <div className="min-w-0 space-y-7 xl:col-span-7">
+                <div className="eyebrow-grid pb-4">
+                  <Eyebrow>{page.eyebrow}</Eyebrow>
+                </div>
+                <h1 className="display-font text-balance max-w-[11ch] text-[2.55rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.35rem] lg:text-[4rem] xl:text-[4.45rem]">
                   {page.heroTitle}
                 </h1>
-                <p className="max-w-2xl text-lg leading-8 text-muted lg:text-[1.2rem]">
+                <p className="max-w-2xl text-lg leading-8 text-muted lg:text-[1.18rem]">
                   {page.heroDescription}
                 </p>
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                   <ButtonLink href="/calculate">Запросить расчёт</ButtonLink>
                   <ButtonLink href="/contacts" variant="secondary">
                     Перейти в контакты
                   </ButtonLink>
+                  <span className="inline-flex items-center gap-2 text-sm text-muted">
+                    <CheckCircle2 className="size-4 text-brand" />
+                    Подходит для рабочей заявки без длинной переписки
+                  </span>
                 </div>
+                <MetricStrip
+                  items={page.highlights}
+                  className="xl:grid-cols-4"
+                  itemClassName="bg-white/74"
+                />
               </div>
 
               {heroArtwork ? (
-                <div className="surface-dark mesh-accent overflow-hidden rounded-[2rem] border border-white/8 xl:col-span-5">
-                  <div className="px-6 py-5 xl:px-7">
-                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/46">
-                      Кратко
-                    </p>
-                    <p className="mt-3 text-lg leading-7 text-white/72">
-                      {heroArtwork.description}
-                    </p>
+                <div className="surface-dark mesh-accent relative overflow-hidden rounded-[2.2rem] border border-white/8 xl:col-span-5">
+                  <div className="absolute left-5 top-5 z-10 inline-flex rounded-full border border-white/12 bg-white/8 px-3 py-2 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-white/74 backdrop-blur-md">
+                    Кратко
                   </div>
-                  <div className="border-t border-white/8" />
+                  <div className="absolute bottom-5 left-5 right-5 z-10 rounded-[1.35rem] border border-white/10 bg-white/8 px-4 py-4 backdrop-blur-md">
+                    <p className="text-sm leading-6 text-white/76">{heroArtwork.description}</p>
+                  </div>
                   <div className="relative aspect-[4/3]">
                     <Image
                       src={heroArtwork.src}
@@ -114,11 +109,11 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                   </div>
                 </div>
               ) : (
-                <div className="surface-dark mesh-accent min-w-0 rounded-[2rem] border border-white/8 p-6 text-white xl:col-span-5 xl:p-7">
+                <div className="surface-dark mesh-accent min-w-0 rounded-[2.2rem] border border-white/8 p-6 text-white xl:col-span-5 xl:p-7">
                   <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/46">
                     Кратко
                   </p>
-                  <p className="mt-4 max-w-[18ch] text-[1.85rem] leading-[1.05] font-semibold tracking-[-0.05em]">
+                  <p className="display-font mt-4 max-w-[18ch] text-[1.95rem] leading-[1.02] font-semibold tracking-[-0.05em]">
                     {page.description}
                   </p>
                   <div className="mt-8">
@@ -140,7 +135,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_.92fr]">
             <SectionHeading title={page.introTitle} />
-            <div className="space-y-5 text-base leading-8 text-muted">
+            <div className="space-y-5 rounded-[2rem] border border-foreground/8 bg-white/62 p-6 text-base leading-8 text-muted shadow-[0_16px_36px_rgba(17,23,21,0.05)]">
               {page.introParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -161,12 +156,19 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
             {page.solutions.map((item, index) => (
               <article
                 key={item.title}
-                className={`surface-card flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 ${solutionSpans[index % solutionSpans.length]}`}
+                className={`surface-card card-lift flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 ${solutionSpans[index % solutionSpans.length]} ${
+                  index % 2 === 0 ? "bg-white/94" : "bg-white/84"
+                }`}
               >
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
                   Сценарий {index + 1}
-                </p>
-                <h3 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                  </p>
+                  <span className="inline-flex size-10 items-center justify-center rounded-full border border-foreground/8 bg-white/82 text-sm font-semibold text-brand-deep">
+                    0{index + 1}
+                  </span>
+                </div>
+                <h3 className="display-font text-[1.55rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
@@ -181,12 +183,14 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
           <div className="surface-dark rounded-[2.5rem] border border-white/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <SectionHeading title={page.benefitsTitle} inverse />
             <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-3">
-              {page.benefits.map((item) => (
+              {page.benefits.map((item, index) => (
                 <article
                   key={item.title}
-                  className="flex h-full min-w-0 flex-col rounded-[1.75rem] border border-white/10 bg-white/5 p-6"
+                  className={`flex h-full min-w-0 flex-col rounded-[1.75rem] border border-white/10 p-6 ${
+                    index === 1 ? "bg-white/9" : "bg-white/5"
+                  }`}
                 >
-                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
+                  <h3 className="display-font text-[1.45rem] leading-[1.06] font-semibold tracking-[-0.03em] text-white">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-base leading-7 text-white/66">
@@ -211,12 +215,12 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
               {page.process.map((step, index) => (
                 <article
                   key={step.title}
-                  className="surface-card min-w-0 rounded-[1.9rem] border border-foreground/8 p-6"
+                  className="surface-card card-lift min-w-0 rounded-[1.9rem] border border-foreground/8 p-6"
                 >
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                     Шаг {index + 1}
                   </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                  <h3 className="display-font mt-4 text-[1.55rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
                     {step.title}
                   </h3>
                   <p className="mt-4 text-base leading-7 text-muted">{step.description}</p>
@@ -251,7 +255,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                     key={item.slug}
                     className="rounded-[1.5rem] border border-foreground/8 bg-white/80 p-5"
                   >
-                    <p className="text-lg font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
                       {item.label}
                     </p>
                     <p className="mt-3 text-sm leading-6 text-muted">{item.description}</p>
@@ -274,32 +278,33 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
       <section className="pb-18 sm:pb-24" id="request">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
-            <div className="space-y-6">
+            <div className="surface-dark rounded-[2.2rem] border border-white/8 p-6 text-white sm:p-8">
               <SectionHeading
                 eyebrow="Заявка"
                 title={page.ctaTitle}
                 description={page.ctaDescription}
+                inverse
               />
-              <div className="surface-card rounded-[2rem] border border-foreground/8 p-6">
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted">
+              <div className="mt-8 rounded-[1.9rem] border border-white/10 bg-white/5 p-6">
+                <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-white/46">
                   Быстрые контакты
                 </p>
                 <div className="mt-5 grid gap-4">
                   <a
                     href={contactChannels.phone.href}
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 px-5 py-4 hover:border-brand/30"
+                    className="rounded-[1.5rem] border border-white/10 bg-white/8 px-5 py-4 hover:bg-white/12"
                   >
-                    <p className="text-sm text-muted">{contactChannels.phone.label}</p>
-                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em]">
+                    <p className="text-sm text-white/58">{contactChannels.phone.label}</p>
+                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-white">
                       {contactChannels.phone.value}
                     </p>
                   </a>
                   <a
                     href={contactChannels.email.href}
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 px-5 py-4 hover:border-brand/30"
+                    className="rounded-[1.5rem] border border-white/10 bg-white/8 px-5 py-4 hover:bg-white/12"
                   >
-                    <p className="text-sm text-muted">{contactChannels.email.label}</p>
-                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em]">
+                    <p className="text-sm text-white/58">{contactChannels.email.label}</p>
+                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-white">
                       {contactChannels.email.value}
                     </p>
                   </a>

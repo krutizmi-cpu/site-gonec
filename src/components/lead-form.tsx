@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { LoaderCircle } from "lucide-react";
+import { CheckCircle2, LoaderCircle, ShieldCheck, Sparkles } from "lucide-react";
 import {
   initialLeadFormState,
   submitLeadAction,
@@ -36,7 +36,7 @@ function Field({
         defaultValue={defaultValue}
         placeholder={placeholder}
         className={cn(
-          "min-h-[3.35rem] rounded-[1.35rem] border bg-white px-4 text-base outline-none placeholder:text-muted/70",
+          "min-h-[3.45rem] rounded-[1.35rem] border bg-white/88 px-4 text-base outline-none placeholder:text-muted/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]",
           error ? "border-red-400" : "border-foreground/10 focus:border-brand",
         )}
       />
@@ -58,7 +58,36 @@ export function LeadForm({
   );
 
   return (
-    <form action={formAction} className="surface-card rounded-[2rem] p-6 sm:p-8">
+    <form action={formAction} className="surface-card section-shell rounded-[2.2rem] border border-foreground/8 p-6 sm:p-8">
+      <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="space-y-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand/16 bg-brand-soft px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-brand-deep">
+            <Sparkles className="size-3.5" />
+            Запросить сценарий
+          </div>
+          <div className="space-y-2">
+            <h3 className="display-font text-[1.8rem] leading-[1] font-semibold tracking-[-0.045em] text-foreground sm:text-[2.2rem]">
+              Форма для предметной заявки
+            </h3>
+            <p className="max-w-xl text-sm leading-6 text-muted sm:text-base">
+              Оставьте задачу в свободной форме. Дальше можно быстро перевести её в
+              рабочий маршрут, расчёт или спокойный обратный звонок.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-2 text-sm text-muted">
+          <div className="inline-flex items-center gap-2 rounded-full border border-foreground/8 bg-white/72 px-3 py-2">
+            <ShieldCheck className="size-4 text-brand" />
+            Персональные данные защищены
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-foreground/8 bg-white/72 px-3 py-2">
+            <CheckCircle2 className="size-4 text-brand" />
+            Подходит для B2C, B2B и e-commerce
+          </div>
+        </div>
+      </div>
+
       <div className="grid gap-6 lg:grid-cols-2">
         <Field
           label="Имя"
@@ -95,7 +124,7 @@ export function LeadForm({
           name="service"
           defaultValue={defaultService || serviceOptions[0]}
           className={cn(
-            "min-h-[3.35rem] rounded-[1.35rem] border bg-white px-4 text-base outline-none",
+            "min-h-[3.45rem] rounded-[1.35rem] border bg-white/88 px-4 text-base outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]",
             state.fieldErrors?.service
               ? "border-red-400"
               : "border-foreground/10 focus:border-brand",
@@ -120,7 +149,7 @@ export function LeadForm({
           rows={6}
           placeholder="Что нужно отправлять, как часто, по каким направлениям и какой результат нужен."
           className={cn(
-            "min-h-[10rem] rounded-[1.35rem] border bg-white px-4 py-4 text-base outline-none placeholder:text-muted/70",
+            "min-h-[10rem] rounded-[1.35rem] border bg-white/88 px-4 py-4 text-base outline-none placeholder:text-muted/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]",
             state.fieldErrors?.message
               ? "border-red-400"
               : "border-foreground/10 focus:border-brand",
@@ -131,7 +160,7 @@ export function LeadForm({
         ) : null}
       </label>
 
-      <label className="mt-5 flex items-start gap-3 text-sm leading-6 text-muted">
+      <label className="mt-6 flex items-start gap-3 rounded-[1.4rem] border border-foreground/8 bg-white/65 p-4 text-sm leading-6 text-muted">
         <input
           type="checkbox"
           name="consent"
@@ -147,14 +176,14 @@ export function LeadForm({
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex min-h-[3.35rem] items-center justify-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(26,178,72,0.22)] hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-80"
+          className="inline-flex min-h-[3.45rem] items-center justify-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(26,178,72,0.24)] hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-80"
         >
           {pending ? <LoaderCircle className="size-4 animate-spin" /> : null}
           Отправить заявку
         </button>
-        <p className="max-w-md text-sm text-muted">
-          Для production подключите `LEAD_WEBHOOK_URL`, чтобы отправлять формы в
-          CRM, почту или любой ваш webhook.
+        <p className="max-w-md text-sm leading-6 text-muted">
+          Обычно достаточно имени, телефона и короткого описания задачи. Если
+          вопрос срочный, лучше сразу указать город, частоту отправок и тип груза.
         </p>
       </div>
 

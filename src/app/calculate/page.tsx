@@ -27,8 +27,8 @@ export default function CalculatePage() {
           <div className="surface-dark rounded-[2.25rem] border border-white/8 p-6 text-white sm:p-8 lg:p-10">
             <SectionHeading
               eyebrow="Расчёт"
-              title="Страница для прямой конверсии из SEO, контекста и локального трафика"
-              description="Здесь нет длинной теории. Только короткое объяснение, что можно рассчитать, и форма, которую легко подключить к webhook, CRM или почтовому каналу."
+              title="Страница для прямой конверсии без лишней теории"
+              description="Здесь достаточно коротко описать задачу: формат доставки, географию, частоту отправок и нужный результат. Остальное соберём уже в диалоге."
               inverse
             />
             <div className="mt-8 grid gap-4">

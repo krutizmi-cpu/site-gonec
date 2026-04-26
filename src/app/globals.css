@@ -13,8 +13,11 @@
   --color-muted: #60706a;
   --color-muted-strong: #2d3935;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Geologica", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --shadow-panel: 0 20px 60px rgba(17, 23, 21, 0.08);
+  --shadow-panel: 0 24px 72px rgba(17, 23, 21, 0.08);
+  --shadow-soft: 0 12px 34px rgba(17, 23, 21, 0.06);
+  --shadow-lift: 0 24px 64px rgba(17, 23, 21, 0.14);
 }
 
 * {
@@ -27,8 +30,9 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(26, 178, 72, 0.08), transparent 28%),
-    linear-gradient(180deg, #f7f6f1 0%, #f2f0e9 100%);
+    radial-gradient(circle at top left, rgba(26, 178, 72, 0.1), transparent 24%),
+    radial-gradient(circle at top right, rgba(26, 178, 72, 0.06), transparent 20%),
+    linear-gradient(180deg, #f7f6f1 0%, #f3f1ea 36%, #f0eee6 100%);
   color: var(--color-foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -122,7 +126,9 @@ img {
 }
 
 .surface-card {
-  background: rgba(255, 255, 255, 0.86);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.84) 100%),
+    rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(17, 23, 21, 0.09);
   box-shadow: var(--shadow-panel);
   backdrop-filter: blur(10px);
@@ -130,7 +136,8 @@ img {
 
 .surface-dark {
   background:
-    linear-gradient(180deg, rgba(17, 23, 21, 0.96) 0%, rgba(17, 23, 21, 0.9) 100%),
+    radial-gradient(circle at top right, rgba(26, 178, 72, 0.16), transparent 28%),
+    linear-gradient(180deg, rgba(17, 23, 21, 0.98) 0%, rgba(17, 23, 21, 0.92) 100%),
     linear-gradient(135deg, rgba(26, 178, 72, 0.18), transparent 55%);
 }
 
@@ -149,14 +156,52 @@ img {
 .editorial-frame::after {
   content: "";
   position: absolute;
-  inset: auto -20% -35% auto;
-  height: 20rem;
-  width: 20rem;
+  inset: auto -16% -26% auto;
+  height: 22rem;
+  width: 22rem;
   border-radius: 9999px;
-  background: rgba(26, 178, 72, 0.08);
-  filter: blur(12px);
+  background: rgba(26, 178, 72, 0.12);
+  filter: blur(18px);
 }
 
 .text-balance {
   text-wrap: balance;
+}
+
+.display-font {
+  font-family: var(--font-display);
+}
+
+.eyebrow-grid {
+  position: relative;
+}
+
+.eyebrow-grid::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 -0.6rem 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(17, 23, 21, 0.12), transparent 72%);
+}
+
+.card-lift {
+  box-shadow: var(--shadow-soft);
+}
+
+.card-lift:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+.section-shell {
+  position: relative;
+}
+
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  mask: linear-gradient(180deg, rgba(255, 255, 255, 0.88), transparent 46%);
 }

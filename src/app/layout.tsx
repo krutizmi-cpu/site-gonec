@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Manrope } from "next/font/google";
+import { Geologica, IBM_Plex_Mono, Manrope } from "next/font/google";
 import Script from "next/script";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -9,6 +9,11 @@ import "./globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
+  subsets: ["latin", "cyrillic"],
+});
+
+const geologica = Geologica({
+  variable: "--font-geologica",
   subsets: ["latin", "cyrillic"],
 });
 
@@ -75,7 +80,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${manrope.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      className={`${manrope.variable} ${geologica.variable} ${ibmPlexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
         <SiteHeader />

@@ -40,6 +40,7 @@ export function SectionHeading({
   inverse,
   className,
   titleClassName,
+  descriptionClassName,
 }: {
   eyebrow?: string;
   title: string;
@@ -47,13 +48,14 @@ export function SectionHeading({
   inverse?: boolean;
   className?: string;
   titleClassName?: string;
+  descriptionClassName?: string;
 }) {
   return (
     <div className={cn("max-w-3xl min-w-0 space-y-4", className)}>
       {eyebrow ? <Eyebrow inverse={inverse}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
-          "text-balance text-[2rem] leading-[0.98] font-semibold tracking-[-0.045em] sm:text-[2.5rem] lg:text-[3rem]",
+          "display-font text-balance text-[2rem] leading-[0.98] font-semibold tracking-[-0.05em] sm:text-[2.55rem] lg:text-[3.15rem]",
           inverse ? "text-white" : "text-foreground",
           titleClassName,
         )}
@@ -65,6 +67,7 @@ export function SectionHeading({
           className={cn(
             "max-w-2xl text-base leading-7 sm:text-lg",
             inverse ? "text-white/70" : "text-muted",
+            descriptionClassName,
           )}
         >
           {description}
@@ -95,7 +98,7 @@ export function ButtonLink({
   className?: string;
 }) {
   const baseClassName = cn(
-    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold tracking-[-0.01em] whitespace-nowrap",
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold tracking-[-0.015em] whitespace-nowrap shadow-[0_10px_24px_rgba(17,23,21,0.06)]",
     buttonVariants[variant],
     className,
   );

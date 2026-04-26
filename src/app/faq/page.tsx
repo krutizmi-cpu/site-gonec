@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { FaqAccordion } from "@/components/faq-accordion";
 import { Container, SectionHeading } from "@/components/site-ui";
 import { buildPageMetadata } from "@/lib/seo";
 import { sharedFaq } from "@/lib/site-data";
@@ -17,25 +18,23 @@ export default function FaqPage() {
   return (
     <section className="pb-18 pt-10 sm:pb-24 sm:pt-14">
       <Container>
-        <div className="surface-card rounded-[2.25rem] border border-foreground/8 p-6 sm:p-8 lg:p-10">
-          <SectionHeading
-            eyebrow="FAQ"
-            title="Частые вопросы по услугам и структуре сайта"
-            description="Подходит и для обычного пользователя, и для бизнеса: ответы написаны ясным языком без ненужной перегрузки."
-          />
-          <div className="mt-10 grid gap-4">
-            {sharedFaq.map((item, index) => (
-              <details
-                key={item.question}
-                className="rounded-[1.8rem] border border-foreground/8 bg-white/75 p-6"
-                open={index === 0}
-              >
-                <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-foreground">
-                  {item.question}
-                </summary>
-                <p className="mt-4 text-base leading-7 text-muted">{item.answer}</p>
-              </details>
-            ))}
+        <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+          <div className="surface-dark rounded-[2.3rem] border border-white/8 p-6 text-white sm:p-8 lg:p-10">
+            <SectionHeading
+              eyebrow="FAQ"
+              title="Частые вопросы по услугам и структуре сайта"
+              description="Подходит и для обычного пользователя, и для бизнеса: ответы собраны в спокойный, понятный и не перегруженный блок."
+              inverse
+            />
+            <div className="mt-8 rounded-[1.8rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
+              Если вопрос не попал в список, удобнее сразу оставить заявку или
+              связаться напрямую: так мы быстрее соберём рабочий сценарий под вашу
+              задачу.
+            </div>
+          </div>
+
+          <div className="surface-card rounded-[2.3rem] border border-foreground/8 p-6 sm:p-8 lg:p-10">
+            <FaqAccordion items={sharedFaq} />
           </div>
         </div>
       </Container>

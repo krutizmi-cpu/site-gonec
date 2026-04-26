@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { FaqAccordion } from "@/components/faq-accordion";
 import { LeadForm } from "@/components/lead-form";
 import {
   ButtonLink,
   Container,
   Eyebrow,
   InlineLink,
+  MetricStrip,
   SectionHeading,
 } from "@/components/site-ui";
 import { buildPageMetadata } from "@/lib/seo";
@@ -15,6 +18,7 @@ import {
   contactChannels,
   coreAdvantages,
   detailsCards,
+  homeHighlights,
   launchSteps,
   serviceRails,
   sharedFaq,
@@ -27,44 +31,99 @@ export const metadata = buildPageMetadata({
   path: "/",
 });
 
+const audienceStyles = [
+  "xl:col-span-5 xl:min-h-[21rem] bg-white/96",
+  "xl:col-span-4 xl:min-h-[21rem] bg-white/92",
+  "xl:col-span-3 xl:min-h-[21rem] bg-brand-soft/70",
+  "xl:col-span-3 xl:min-h-[19rem] bg-white/92",
+  "xl:col-span-4 xl:min-h-[19rem] bg-white/96",
+  "xl:col-span-5 xl:min-h-[19rem] bg-white/92",
+];
+
+const audienceBadges = [
+  "B2C",
+  "B2B",
+  "D2C",
+  "FBO / FBS",
+  "Складской контур",
+  "Cross-border",
+];
+
 export default function HomePage() {
   return (
     <>
-      <section className="pb-18 pt-10 sm:pb-24 sm:pt-14">
+      <section className="pb-18 pt-12 sm:pb-24 sm:pt-16">
         <Container>
-          <div className="editorial-frame surface-card rounded-[2.4rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div className="grid items-start gap-8 xl:grid-cols-12 xl:gap-10">
-              <div className="min-w-0 space-y-6 xl:col-span-7">
-                <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
-                <h1 className="text-balance max-w-[12ch] text-[2.45rem] leading-[0.94] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.15rem] lg:text-[3.85rem] xl:text-[4.2rem]">
-                  Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
-                </h1>
-                <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-                  Отправка посылок и документов, договорные сценарии для компаний,
-                  доставка для интернет-магазинов, marketplace-логистика и запуск
-                  фулфилмент-контуров без визуального и операционного хаоса.
-                </p>
-                <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="editorial-frame surface-card section-shell rounded-[2.8rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+            <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-12">
+              <div className="min-w-0 space-y-7 xl:col-span-7">
+                <div className="eyebrow-grid pb-4">
+                  <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
+                </div>
+                <div className="space-y-5">
+                  <h1 className="display-font text-balance max-w-[11ch] text-[2.7rem] leading-[0.92] font-semibold tracking-[-0.065em] text-foreground sm:text-[3.5rem] lg:text-[4.15rem] xl:text-[4.7rem]">
+                    Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
+                  </h1>
+                  <p className="max-w-2xl text-lg leading-8 text-muted sm:text-[1.22rem]">
+                    Локальный сервисный офис в брендовом поле CDEK: от частных
+                    отправлений и корпоративной логистики до e-commerce,
+                    маркетплейсов и фулфилмент-сценариев.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                   <ButtonLink href="/calculate">Получить расчёт</ButtonLink>
                   <ButtonLink href="/contacts" variant="secondary">
                     Связаться с офисом
                   </ButtonLink>
+                  <span className="inline-flex items-center gap-2 text-sm text-muted">
+                    <CheckCircle2 className="size-4 text-brand" />
+                    Ответим по задаче и подскажем рабочий сценарий
+                  </span>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {[
+                    "Один вход для B2C, B2B и e-commerce",
+                    "Чётко разводим офисные и складские сценарии",
+                    "Юридические данные и контакты открыты сразу",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-[1.45rem] border border-foreground/8 bg-white/74 px-4 py-4 text-sm leading-6 text-muted shadow-[0_10px_22px_rgba(17,23,21,0.05)]"
+                    >
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="space-y-5 xl:col-span-5">
-                <div className="surface-dark mesh-accent overflow-hidden rounded-[2rem] border border-white/8">
-                  <div className="px-6 py-5 xl:px-7">
-                    <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/44">
-                      Позиционирование
-                    </p>
-                    <p className="mt-3 text-lg leading-7 text-white/72">
-                      Локальный сервисный сайт в брендовом поле CDEK: частные
-                      отправления, корпоративная логистика, e-commerce и
-                      фулфилмент в одной понятной системе.
-                    </p>
+              <div className="space-y-5 xl:col-span-5 xl:pt-3">
+                <div className="surface-dark mesh-accent relative overflow-hidden rounded-[2.3rem] border border-white/8">
+                  <div className="absolute left-5 top-5 z-10 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur-md">
+                    <Sparkles className="size-3.5 text-brand-soft" />
+                    Экосистема сервисов
                   </div>
-                  <div className="border-t border-white/8" />
+
+                  <div className="absolute bottom-5 left-5 right-5 z-10 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-[1.35rem] border border-white/10 bg-[#f7f6f1] px-4 py-3 text-foreground shadow-[0_14px_28px_rgba(0,0,0,0.2)]">
+                      <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted">
+                        Форматы
+                      </p>
+                      <p className="mt-2 text-sm font-semibold tracking-[-0.02em]">
+                        Офис, курьер, ПВЗ, фулфилмент
+                      </p>
+                    </div>
+                    <div className="rounded-[1.35rem] border border-white/10 bg-white/8 px-4 py-3 text-white backdrop-blur-md">
+                      <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-white/48">
+                        Фокус
+                      </p>
+                      <p className="mt-2 text-sm font-semibold tracking-[-0.02em] text-white/88">
+                        Москва · B2C · B2B · e-commerce
+                      </p>
+                    </div>
+                  </div>
+
                   <div className="relative aspect-[4/3]">
                     <Image
                       src="/hero-logistics-scene.svg"
@@ -94,6 +153,10 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-8">
+              <MetricStrip items={homeHighlights} />
+            </div>
           </div>
         </Container>
       </section>
@@ -105,22 +168,29 @@ export default function HomePage() {
             title="Структура сайта сразу делит поток по задачам, а не заставляет всех читать одно и то же"
             description="Это важно и для конверсии, и для SEO: каждая аудитория получает отдельную страницу, понятный язык и нужный CTA."
           />
-          <div className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
             {audienceLinks.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="surface-card group flex min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 hover:border-brand/24 hover:bg-white/92 xl:min-h-[18rem]"
+                className={`card-lift group relative flex min-w-0 flex-col overflow-hidden rounded-[2rem] border border-foreground/8 p-6 transition-transform duration-200 hover:-translate-y-1 hover:border-brand/24 ${audienceStyles[index]}`}
               >
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
-                  Направление {index + 1}
-                </p>
-                <h2 className="mt-4 text-[1.8rem] leading-[1.08] font-semibold tracking-[-0.045em] text-foreground sm:text-[2rem]">
+                <div className="absolute inset-x-6 top-0 h-1 rounded-full bg-gradient-to-r from-brand/75 via-brand/20 to-transparent opacity-70" />
+                <div className="mb-8 flex items-center justify-between gap-4">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
+                    Направление {index + 1}
+                  </p>
+                  <span className="inline-flex items-center rounded-full border border-foreground/8 bg-white/76 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-strong">
+                    {audienceBadges[index]}
+                  </span>
+                </div>
+                <h2 className="display-font text-[1.72rem] leading-[1.06] font-semibold tracking-[-0.045em] text-foreground sm:text-[1.95rem]">
                   {item.title}
                 </h2>
                 <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
-                <span className="mt-auto pt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-deep group-hover:text-brand">
+                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand-deep group-hover:text-brand">
                   Перейти на страницу
+                  <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>
               </Link>
             ))}
@@ -135,15 +205,20 @@ export default function HomePage() {
               eyebrow="Как устроен сервис"
               title="Подача выдержана в бренде CDEK, а красота собирается через ритм, типографику и дисциплину интерфейса"
               description="Мы не уходим в яркий промо-хаос. Вся выразительность строится на фирменном зелёном, графитовых поверхностях, строгой сетке и спокойных переходах."
-              titleClassName="max-w-[11ch] text-[1.9rem] sm:text-[2.35rem] lg:text-[2.9rem]"
+              titleClassName="max-w-[11ch] text-[1.9rem] sm:text-[2.35rem] lg:text-[2.8rem]"
             />
-            <div className="grid auto-rows-fr gap-4">
-              {coreAdvantages.map((item) => (
+            <div className="grid gap-4 md:grid-cols-2">
+              {coreAdvantages.map((item, index) => (
                 <article
                   key={item.title}
-                  className="surface-card flex h-full min-w-0 flex-col rounded-[1.85rem] border border-foreground/8 p-6"
+                  className={`surface-card card-lift flex h-full min-w-0 flex-col rounded-[1.85rem] border border-foreground/8 p-6 ${
+                    index === 0 || index === 3 ? "bg-white/94" : "bg-white/82"
+                  }`}
                 >
-                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-foreground">
+                  <div className="mb-5 inline-flex size-11 items-center justify-center rounded-full border border-foreground/8 bg-white/80 text-sm font-semibold text-brand-deep shadow-[0_8px_18px_rgba(17,23,21,0.05)]">
+                    0{index + 1}
+                  </div>
+                  <h3 className="display-font text-[1.35rem] leading-[1.08] font-semibold tracking-[-0.035em] text-foreground">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
@@ -157,24 +232,31 @@ export default function HomePage() {
       <section className="pb-18 sm:pb-24">
         <Container>
           <div className="surface-dark rounded-[2.5rem] border border-white/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <SectionHeading
-              eyebrow="Ключевые сервисы"
-              title="Логика блоков выстроена как сервисная редактура, а не как набор одинаковых карточек"
-              description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
-              inverse
-            />
+            <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+              <SectionHeading
+                eyebrow="Ключевые сервисы"
+                title="Логика блоков выстроена как сервисная редактура, а не как набор одинаковых карточек"
+                description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
+                inverse
+              />
+              <div className="rounded-[1.9rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
+                Секции не конкурируют друг с другом за внимание: каждая отвечает на
+                свою задачу, а вместе они складываются в один спокойный маршрут до
+                заявки.
+              </div>
+            </div>
             <div className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
               {serviceRails.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 bg-white/6 p-6 ${
-                    index === 0 ? "lg:col-span-5" : index === 1 ? "lg:col-span-4" : "lg:col-span-3"
+                  className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 p-6 ${
+                    index === 0 ? "bg-white/6 lg:col-span-5" : index === 1 ? "bg-white/9 lg:col-span-4" : "bg-white/6 lg:col-span-3"
                   }`}
                 >
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/42">
                     {item.kicker}
                   </p>
-                  <h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
+                  <h2 className="display-font mt-5 text-[1.7rem] leading-[1.06] font-semibold tracking-[-0.045em] text-white">
                     {item.title}
                   </h2>
                   <p className="mt-4 text-base leading-7 text-white/66">{item.description}</p>
@@ -200,12 +282,12 @@ export default function HomePage() {
               {launchSteps.map((step, index) => (
                 <article
                   key={step.title}
-                  className="surface-card rounded-[1.9rem] border border-foreground/8 p-6"
+                  className="surface-card card-lift rounded-[1.9rem] border border-foreground/8 p-6"
                 >
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                     Шаг {index + 1}
                   </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                  <h3 className="display-font mt-4 text-[1.5rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
                     {step.title}
                   </h3>
                   <p className="mt-4 text-base leading-7 text-muted">{step.description}</p>
@@ -218,7 +300,7 @@ export default function HomePage() {
 
       <section className="pb-18 sm:pb-24">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[.95fr_1.05fr]">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.04fr]">
             <div className="space-y-6">
               <SectionHeading
                 eyebrow="Контакты и доверие"
@@ -229,7 +311,7 @@ export default function HomePage() {
                 {detailsCards.map((card) => (
                   <article
                     key={card.title}
-                    className="surface-card rounded-[1.7rem] border border-foreground/8 p-5"
+                    className="surface-card card-lift rounded-[1.7rem] border border-foreground/8 p-5"
                   >
                     <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                       {card.title}
@@ -251,26 +333,36 @@ export default function HomePage() {
             </div>
 
             <div className="space-y-4">
-              <div className="surface-card rounded-[2rem] border border-foreground/8 p-6">
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
-                  Каналы связи
-                </p>
-                <div className="mt-5 grid gap-4">
+              <div className="surface-card section-shell rounded-[2rem] border border-foreground/8 p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
+                      Каналы связи
+                    </p>
+                    <p className="mt-3 max-w-md text-sm leading-6 text-muted">
+                      Быстрые каналы для прямого обращения без лишних поисков по сайту.
+                    </p>
+                  </div>
+                  <div className="inline-flex size-11 items-center justify-center rounded-full border border-foreground/8 bg-brand-soft text-brand-deep">
+                    <ShieldCheck className="size-5" />
+                  </div>
+                </div>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <a
                     href={contactChannels.phone.href}
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 px-5 py-4 hover:border-brand/30"
+                    className="rounded-[1.6rem] border border-foreground/8 bg-white/72 px-5 py-5 hover:border-brand/30"
                   >
                     <p className="text-sm text-muted">{contactChannels.phone.label}</p>
-                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="mt-2 text-xl font-semibold tracking-[-0.03em] text-foreground">
                       {contactChannels.phone.value}
                     </p>
                   </a>
                   <a
                     href={contactChannels.email.href}
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 px-5 py-4 hover:border-brand/30"
+                    className="rounded-[1.6rem] border border-foreground/8 bg-white/72 px-5 py-5 hover:border-brand/30"
                   >
                     <p className="text-sm text-muted">{contactChannels.email.label}</p>
-                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="mt-2 text-xl font-semibold tracking-[-0.03em] text-foreground">
                       {contactChannels.email.value}
                     </p>
                   </a>
@@ -302,33 +394,20 @@ export default function HomePage() {
                 title="Частые вопросы до первого обращения"
                 description="Ответы написаны так, чтобы снять лишнее напряжение ещё до звонка или заявки."
               />
-              <div className="mt-10 grid gap-4">
-                {sharedFaq.map((item, index) => (
-                  <details
-                    key={item.question}
-                    className="surface-card rounded-[1.75rem] border border-foreground/8 p-6"
-                    open={index === 0}
-                  >
-                    <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-foreground">
-                      {item.question}
-                    </summary>
-                    <p className="mt-4 text-base leading-7 text-muted">{item.answer}</p>
-                  </details>
-                ))}
-              </div>
+              <FaqAccordion items={sharedFaq} className="mt-10" />
             </div>
 
             <div className="space-y-4">
-              <div className="surface-card rounded-[2rem] border border-foreground/8 p-6">
+              <div className="surface-card section-shell rounded-[2rem] border border-foreground/8 p-6">
                 <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                   Дополнительно
                 </p>
                 <div className="mt-5 grid gap-4">
                   <Link
                     href="/documents-delivery"
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 p-5"
+                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 p-5 hover:border-brand/24"
                   >
-                    <p className="text-lg font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
                       Доставка документов
                     </p>
                     <p className="mt-3 text-sm leading-6 text-muted">
@@ -337,9 +416,9 @@ export default function HomePage() {
                   </Link>
                   <Link
                     href="/calculate"
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 p-5"
+                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 p-5 hover:border-brand/24"
                   >
-                    <p className="text-lg font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
                       Расчёт логистики
                     </p>
                     <p className="mt-3 text-sm leading-6 text-muted">
@@ -357,32 +436,34 @@ export default function HomePage() {
       <section className="pb-18 sm:pb-24" id="request">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
-            <div className="space-y-6">
+            <div className="surface-dark rounded-[2.2rem] border border-white/8 p-6 text-white sm:p-8">
               <SectionHeading
                 eyebrow="Заявка"
                 title="Получите расчёт или обсудите сценарий доставки"
-                description="Форма подходит и для разовой отправки, и для более сложной логистики. Дальше можно развести поток внутри CRM, webhook или другого канала на Vercel."
+                description="Форма подходит и для разовой отправки, и для более сложной логистики. Оставьте задачу, а дальше спокойно переведём её в понятный рабочий сценарий."
+                inverse
+                titleClassName="max-w-[12ch]"
               />
-              <div className="surface-card rounded-[2rem] border border-foreground/8 p-6">
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
+              <div className="mt-8 rounded-[1.9rem] border border-white/10 bg-white/5 p-6">
+                <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-white/46">
                   Быстрые контакты
                 </p>
                 <div className="mt-5 grid gap-4">
                   <a
                     href={contactChannels.phone.href}
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 px-5 py-4 hover:border-brand/30"
+                    className="rounded-[1.5rem] border border-white/10 bg-white/8 px-5 py-4 hover:bg-white/12"
                   >
-                    <p className="text-sm text-muted">{contactChannels.phone.label}</p>
-                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="text-sm text-white/58">{contactChannels.phone.label}</p>
+                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-white">
                       {contactChannels.phone.value}
                     </p>
                   </a>
                   <a
                     href={contactChannels.email.href}
-                    className="rounded-[1.5rem] border border-foreground/8 bg-white/70 px-5 py-4 hover:border-brand/30"
+                    className="rounded-[1.5rem] border border-white/10 bg-white/8 px-5 py-4 hover:bg-white/12"
                   >
-                    <p className="text-sm text-muted">{contactChannels.email.label}</p>
-                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="text-sm text-white/58">{contactChannels.email.label}</p>
+                    <p className="mt-1 text-lg font-semibold tracking-[-0.03em] text-white">
                       {contactChannels.email.value}
                     </p>
                   </a>
