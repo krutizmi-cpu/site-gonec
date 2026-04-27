@@ -5,7 +5,7 @@ import { companyInfo, contactChannels, contactNotes } from "@/lib/site-data";
 export const metadata = buildPageMetadata({
   title: "Контакты — сервисы доставки СДЭК в Москве | Гонецъ",
   description:
-    "Контакты, юридический адрес и основные каналы связи для обращений по логистическим сервисам в Москве.",
+    "Контакты для частных клиентов и бизнеса: телефон, e-mail, Telegram, WhatsApp и обращение по услугам доставки СДЭК в Москве.",
   path: "/contacts",
 });
 
@@ -44,8 +44,8 @@ export default function ContactsPage() {
           <div className="surface-card section-shell rounded-[2.25rem] border border-foreground/8 p-6 sm:p-8 lg:p-10">
             <SectionHeading
               eyebrow="Контакты"
-              title="Контактный блок, который выглядит как сервис, а не как справка"
-              description="Собрали быстрые каналы связи, адрес и ориентиры по работе с обращениями в одном спокойном trust-разделе."
+              title="Свяжитесь с нами удобным способом"
+              description="Если нужно отправить посылку, подключить доставку для бизнеса или обсудить e-commerce, выберите удобный канал связи и напишите нам."
             />
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {contactBlocks.map((item) => (
@@ -60,10 +60,10 @@ export default function ContactsPage() {
                   <p className="display-font mt-3 text-[1.4rem] leading-[1.08] font-semibold tracking-[-0.03em] text-foreground">
                     {item.value}
                   </p>
-                  <p className="mt-3 text-sm leading-6 text-muted">
+                  <p className="copy-justify mt-3 text-sm leading-6 text-muted">
                     {item.placeholder
-                      ? "Канал можно актуализировать перед финальной публикацией."
-                      : "Подходит для прямого обращения по задаче."}
+                      ? "Контакт уточняется. Перед публикацией можно поставить актуальные данные."
+                      : "Подходит для быстрого обращения по доставке, расчёту или подключению услуг."}
                   </p>
                 </a>
               ))}
@@ -76,9 +76,10 @@ export default function ContactsPage() {
               <p className="display-font mt-4 text-[1.45rem] leading-[1.1] font-semibold tracking-[-0.03em] text-foreground">
                 {companyInfo.address}
               </p>
-              <p className="mt-4 text-sm leading-6 text-muted">
-                При необходимости на этой странице можно отдельно показать точку
-                обслуживания клиентов или карту, не смешивая её с юридическими данными.
+              <p className="copy-justify mt-4 text-sm leading-6 text-muted">
+                Юридический адрес размещён отдельно для удобства. По вопросам
+                доставки и подключения услуг быстрее всего написать или позвонить
+                через контакты выше.
               </p>
             </div>
           </div>
@@ -92,19 +93,20 @@ export default function ContactsPage() {
                 {contactChannels.hours.value}
               </p>
               {contactChannels.hours.placeholder ? (
-                <p className="mt-4 text-sm text-white/60">
-                  График можно уточнить под фактический режим конкретного офиса.
+                <p className="copy-justify mt-4 text-sm text-white/60">
+                  График можно уточнить перед публикацией, если у конкретного офиса
+                  другой режим работы.
                 </p>
               ) : null}
             </div>
 
             <div className="surface-card section-shell rounded-[2.25rem] border border-foreground/8 p-6 sm:p-8">
               <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
-                Контур доверия
+                Перед обращением
               </p>
               <div className="mt-5 space-y-4 text-base leading-7 text-muted">
                 {contactNotes.map((note) => (
-                  <p key={note}>{note}</p>
+                  <p key={note} className="copy-justify">{note}</p>
                 ))}
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
