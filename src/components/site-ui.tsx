@@ -55,7 +55,7 @@ export function SectionHeading({
       {eyebrow ? <Eyebrow inverse={inverse}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
-          "display-font text-balance text-[2rem] leading-[0.98] font-semibold tracking-[-0.05em] sm:text-[2.55rem] lg:text-[3.15rem]",
+          "display-font text-balance text-[1.88rem] leading-[1] font-semibold tracking-[-0.045em] sm:text-[2.28rem] lg:text-[2.72rem]",
           inverse ? "text-white" : "text-foreground",
           titleClassName,
         )}
@@ -65,7 +65,7 @@ export function SectionHeading({
       {description ? (
         <p
           className={cn(
-            "max-w-2xl text-base leading-7 sm:text-lg",
+            "copy-justify max-w-2xl text-[0.98rem] leading-7 sm:text-[1.02rem]",
             inverse ? "text-white/70" : "text-muted",
             descriptionClassName,
           )}
@@ -157,16 +157,16 @@ export function MetricStrip({
   return (
     <div
       className={cn(
-        "grid gap-4 sm:grid-cols-2 xl:grid-cols-4",
+        "grid gap-4",
         inverse ? "text-white" : "text-foreground",
-        className,
+        className ?? "sm:grid-cols-2 xl:grid-cols-4",
       )}
     >
       {items.map((item) => (
         <div
           key={`${item.label}-${item.value}`}
           className={cn(
-            "rounded-[1.6rem] border p-5",
+            "flex h-full min-w-0 flex-col rounded-[1.6rem] border p-5",
             inverse
               ? "border-white/12 bg-white/5"
               : "surface-card border-foreground/8 bg-white/75",
@@ -181,7 +181,7 @@ export function MetricStrip({
           >
             {item.label}
           </p>
-          <p className="mt-3 text-base leading-6 font-semibold tracking-[-0.03em] sm:text-lg">
+          <p className="mt-3 text-[1rem] leading-6 font-semibold tracking-[-0.025em] sm:text-[1.05rem]">
             {item.value}
           </p>
         </div>

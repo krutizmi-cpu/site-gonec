@@ -32,7 +32,6 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
 
   const faqSchema = buildFaqSchema(page.title, page.faq);
   const serviceOptions = Object.values(marketingPages).map((item) => item.label);
-  const solutionSpans = ["lg:col-span-5", "lg:col-span-4", "lg:col-span-3", "lg:col-span-6"];
   const imagePages = [
     "private",
     "business",
@@ -42,6 +41,20 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
     "international",
   ];
   const hasEditorialHeroArtwork = imagePages.includes(page.slug);
+  const heroTitleClassName =
+    page.slug === "private"
+      ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+      : page.slug === "business"
+        ? "max-w-[12ch] text-[1.92rem] sm:text-[2.3rem] lg:text-[2.72rem] xl:text-[3.02rem]"
+      : page.slug === "online-stores"
+        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+      : page.slug === "marketplaces"
+        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+      : page.slug === "fulfillment"
+        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+      : page.slug === "international"
+        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+      : "max-w-[12ch] text-[2.08rem] sm:text-[2.6rem] lg:text-[3.05rem] xl:text-[3.45rem]";
   const heroImageClass =
     page.slug === "private"
       ? "object-cover object-center scale-[1.14]"
@@ -69,35 +82,35 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
           src: "/business-hero-cdek.png",
           alt: "Иллюстрация для бизнеса: офисная консультация, складские точки, доставка и корпоративный логистический контур",
           description:
-            "Корпоративный сценарий: консультация, согласование процесса, отправки, обработка и логистическое сопровождение.",
+            "Доставка для бизнеса: консультация, согласование, отправки, обработка и сопровождение.",
         }
       : page.slug === "online-stores"
       ? {
           src: "/online-store-hero-cdek.png",
           alt: "Иллюстрация для интернет-магазина: витрина, склад, заказы, аналитика, доставка и e-commerce-маршрут",
           description:
-            "E-commerce-сценарий: витрина, заказы, складская обработка, аналитика, доставка и движение товаров по каналу продаж.",
+            "Интернет-магазин: витрина, заказы, складская обработка, аналитика и доставка.",
         }
       : page.slug === "marketplaces"
       ? {
           src: "/marketplaces-hero-cdek.png",
           alt: "Иллюстрация работы с маркетплейсами: склад, сортировка, личный кабинет, площадки продаж и маршруты доставки",
           description:
-            "Единый контур для marketplace-логистики: заказы, маркировка, сортировка, отгрузки, возвраты и доставка по разным каналам.",
+            "Работа с маркетплейсами: заказы, маркировка, сортировка, отгрузки, возвраты и доставка по разным каналам.",
         }
         : page.slug === "fulfillment"
         ? {
             src: "/fulfillment-hero-cdek.png",
             alt: "Иллюстрация фулфилмента: стеллажи, конвейеры, складская автоматизация, сортировка и упаковка заказов",
             description:
-              "Фулфилмент как операционная система: хранение, сборка, автоматизация, упаковка и передача заказов в доставку.",
+              "Фулфилмент: хранение, сборка, автоматизация, упаковка и передача заказов в доставку.",
           }
         : page.slug === "international"
           ? {
               src: "/international-hero-cdek.png",
               alt: "Иллюстрация международной доставки: аэропорт, грузовой терминал, самолёт и обработка отправлений",
               description:
-                "Международная доставка через авиа-контур: терминал, самолёт, наземная обработка и передача грузов на международный маршрут.",
+                "Международная доставка: терминал, самолёт, наземная обработка и отправка груза по маршруту.",
             }
           : null;
 
@@ -117,15 +130,11 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                   <Eyebrow>{page.eyebrow}</Eyebrow>
                 </div>
                 <h1
-                  className={`display-font text-balance leading-[0.92] font-semibold tracking-[-0.065em] text-foreground ${
-                    hasEditorialHeroArtwork
-                      ? "max-w-[11ch] text-[1.92rem] sm:text-[2.3rem] lg:text-[2.72rem] xl:text-[3.02rem]"
-                      : "max-w-[12ch] text-[2.08rem] sm:text-[2.6rem] lg:text-[3.05rem] xl:text-[3.45rem]"
-                  }`}
+                  className={`display-font text-balance leading-[0.96] font-semibold tracking-[-0.052em] text-foreground ${heroTitleClassName}`}
                 >
                   {page.heroTitle}
                 </h1>
-                <p className="max-w-2xl text-lg leading-8 text-muted lg:text-[1.18rem]">
+                <p className="copy-justify max-w-2xl text-[1rem] leading-8 text-muted lg:text-[1.08rem]">
                   {page.heroDescription}
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -135,14 +144,9 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                   </ButtonLink>
                   <span className="inline-flex items-center gap-2 text-sm text-muted">
                     <CheckCircle2 className="size-4 text-brand" />
-                    Подходит для рабочей заявки без длинной переписки
+                    Подходит для короткой и понятной заявки
                   </span>
                 </div>
-                <MetricStrip
-                  items={page.highlights}
-                  className="xl:grid-cols-4"
-                  itemClassName="bg-white/74"
-                />
               </Reveal>
 
               {heroArtwork ? (
@@ -157,7 +161,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                         Кратко
                       </div>
                       <div className="absolute bottom-5 left-5 right-5 z-10 rounded-[1.35rem] border border-white/10 bg-white/8 px-4 py-4 backdrop-blur-md">
-                        <p className="text-sm leading-6 text-white/76">{heroArtwork.description}</p>
+                        <p className="copy-justify text-sm leading-6 text-white/76">{heroArtwork.description}</p>
                       </div>
                     </>
                   ) : null}
@@ -181,7 +185,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                   <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/46">
                     Кратко
                   </p>
-                  <p className="display-font mt-4 max-w-[18ch] text-[1.95rem] leading-[1.02] font-semibold tracking-[-0.05em]">
+                  <p className="display-font mt-4 max-w-[16ch] text-[1.7rem] leading-[1.04] font-semibold tracking-[-0.04em]">
                     {page.description}
                   </p>
                   <div className="mt-8">
@@ -195,6 +199,15 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                 </Reveal>
               )}
             </div>
+            {hasEditorialHeroArtwork ? (
+              <Reveal className="mt-8" delay={0.12}>
+                <MetricStrip
+                  items={page.highlights}
+                  className="sm:grid-cols-2 xl:grid-cols-4"
+                  itemClassName="bg-white/74"
+                />
+              </Reveal>
+            ) : null}
           </div>
         </Container>
       </section>
@@ -206,11 +219,11 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
               <SectionHeading title={page.introTitle} />
             </Reveal>
             <Reveal
-              className="space-y-5 rounded-[2rem] border border-foreground/8 bg-white/62 p-6 text-base leading-8 text-muted shadow-[0_16px_36px_rgba(17,23,21,0.05)]"
+              className="space-y-5 rounded-[2rem] border border-foreground/8 bg-white/62 p-6 text-[0.98rem] leading-8 text-muted shadow-[0_16px_36px_rgba(17,23,21,0.05)]"
               x={20}
             >
               {page.introParagraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph} className="copy-justify">{paragraph}</p>
               ))}
               {page.note ? (
                 <div className="rounded-[1.75rem] border border-brand/16 bg-brand-soft px-5 py-4 text-brand-deep">
@@ -225,15 +238,11 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
       <section className="pb-18 sm:pb-24">
         <Container>
           <Reveal>
-            <SectionHeading title={page.solutionsTitle} />
+              <SectionHeading title={page.solutionsTitle} />
           </Reveal>
-          <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
+          <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-2">
             {page.solutions.map((item, index) => (
-              <StaggerItem
-                key={item.title}
-                hover
-                className={`${solutionSpans[index % solutionSpans.length]}`}
-              >
+              <StaggerItem key={item.title} hover>
                 <article
                   className={`surface-card card-lift flex h-full min-w-0 flex-col rounded-[2rem] border border-foreground/8 p-6 ${
                     index % 2 === 0 ? "bg-white/94" : "bg-white/84"
@@ -247,10 +256,10 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                       0{index + 1}
                     </span>
                   </div>
-                  <h3 className="display-font text-[1.55rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
+                  <h3 className="display-font max-w-[16ch] text-[1.34rem] leading-[1.1] font-semibold tracking-[-0.03em] text-foreground">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                  <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{item.description}</p>
                 </article>
               </StaggerItem>
             ))}
@@ -272,10 +281,10 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                       index === 1 ? "bg-white/9" : "bg-white/5"
                     }`}
                   >
-                    <h3 className="display-font text-[1.45rem] leading-[1.06] font-semibold tracking-[-0.03em] text-white">
+                    <h3 className="display-font max-w-[16ch] text-[1.3rem] leading-[1.1] font-semibold tracking-[-0.028em] text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-base leading-7 text-white/66">
+                    <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-white/66">
                       {item.description}
                     </p>
                   </article>
@@ -293,7 +302,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
               <SectionHeading
                 eyebrow="Процесс"
                 title={page.processTitle}
-                description="Стараемся переводить заявку в рабочий контур без скачков между теорией, рекламой и реальными действиями."
+                description="Помогаем пройти путь от первого запроса до запуска услуги спокойно и без лишних шагов."
               />
             </Reveal>
             <StaggerGroup className="space-y-4">
@@ -305,10 +314,10 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                     <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                       Шаг {index + 1}
                     </p>
-                    <h3 className="display-font mt-4 text-[1.55rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
+                    <h3 className="display-font mt-4 max-w-[16ch] text-[1.34rem] leading-[1.1] font-semibold tracking-[-0.03em] text-foreground">
                       {step.title}
                     </h3>
-                    <p className="mt-4 text-base leading-7 text-muted">{step.description}</p>
+                    <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{step.description}</p>
                   </article>
                 </StaggerItem>
               ))}
@@ -343,10 +352,10 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                     key={item.slug}
                     className="rounded-[1.5rem] border border-foreground/8 bg-white/80 p-5"
                   >
-                    <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="display-font text-[1.18rem] font-semibold tracking-[-0.028em] text-foreground">
                       {item.label}
                     </p>
-                    <p className="mt-3 text-sm leading-6 text-muted">{item.description}</p>
+                    <p className="copy-justify mt-3 text-sm leading-6 text-muted">{item.description}</p>
                     <InlineLink href={`/${item.slug}`} className="mt-4">
                       Подробнее
                     </InlineLink>

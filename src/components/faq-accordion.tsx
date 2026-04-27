@@ -21,7 +21,7 @@ export function FaqAccordion({
           open={index === defaultOpenIndex}
         >
           <summary className="flex cursor-pointer list-none items-start justify-between gap-5">
-            <span className="display-font text-lg leading-7 font-semibold tracking-[-0.035em] text-foreground sm:text-[1.35rem]">
+            <span className="display-font text-[1.12rem] leading-[1.18] font-semibold tracking-[-0.03em] text-foreground sm:text-[1.24rem]">
               {item.question}
             </span>
             <span className="mt-1 inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-foreground/10 bg-white/82 text-foreground shadow-[0_8px_18px_rgba(17,23,21,0.06)] transition-transform duration-200 group-open:rotate-45 group-open:border-brand/30 group-open:bg-brand-soft group-open:text-brand-deep">
@@ -29,7 +29,7 @@ export function FaqAccordion({
             </span>
           </summary>
           <div className="mt-5 border-t border-foreground/8 pt-5">
-            <p className="max-w-3xl text-base leading-7 text-muted">{item.answer}</p>
+            <p className="copy-justify max-w-3xl text-[0.98rem] leading-7 text-muted">{item.answer}</p>
           </div>
         </details>
       ))}

@@ -65,15 +65,15 @@ export function LeadForm({
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand/16 bg-brand-soft px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-brand-deep">
               <Sparkles className="size-3.5" />
-              Запросить сценарий
+              Оставить заявку
             </div>
             <div className="space-y-2">
-              <h3 className="display-font text-[1.8rem] leading-[1] font-semibold tracking-[-0.045em] text-foreground sm:text-[2.2rem]">
+              <h3 className="display-font max-w-[12ch] text-[1.58rem] leading-[1.02] font-semibold tracking-[-0.04em] text-foreground sm:text-[1.9rem]">
                 Форма для предметной заявки
               </h3>
-              <p className="max-w-xl text-sm leading-6 text-muted sm:text-base">
-                Оставьте задачу в свободной форме. Дальше можно быстро перевести её в
-                рабочий маршрут, расчёт или спокойный обратный звонок.
+              <p className="copy-justify max-w-xl text-sm leading-6 text-muted sm:text-[0.98rem]">
+                Оставьте задачу в свободной форме. Дальше можно быстро перейти к
+                расчёту, уточнению деталей или спокойному обратному звонку.
               </p>
             </div>
           </div>
@@ -192,7 +192,7 @@ export function LeadForm({
               {pending ? <LoaderCircle className="size-4 animate-spin" /> : null}
               Отправить заявку
             </button>
-            <p className="max-w-md text-sm leading-6 text-muted">
+            <p className="copy-justify max-w-md text-sm leading-6 text-muted">
               Обычно достаточно имени, телефона и короткого описания задачи. Если
               вопрос срочный, лучше сразу указать город, частоту отправок и тип груза.
             </p>

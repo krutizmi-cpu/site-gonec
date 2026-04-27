@@ -26,10 +26,10 @@ export default function FaqPage() {
               description="Подходит и для обычного пользователя, и для бизнеса: ответы собраны в спокойный, понятный и не перегруженный блок."
               inverse
             />
-            <div className="mt-8 rounded-[1.8rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
+            <div className="copy-justify mt-8 rounded-[1.8rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
               Если вопрос не попал в список, удобнее сразу оставить заявку или
-              связаться напрямую: так мы быстрее соберём рабочий сценарий под вашу
-              задачу.
+              связаться напрямую: так мы быстрее поймём вашу задачу и подскажем
+              подходящий формат.
             </div>
           </div>
 

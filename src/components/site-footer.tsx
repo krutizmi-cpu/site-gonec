@@ -32,21 +32,23 @@ export function SiteFooter() {
   return (
     <footer className="mt-auto px-4 pb-4 pt-10 sm:px-6 lg:px-8">
       <div className="surface-dark section-shell mx-auto max-w-[1360px] overflow-hidden rounded-[2.4rem] border border-white/8 text-white">
+        <div className="pointer-events-none absolute inset-x-[8%] top-[7.4rem] hidden lg:block">
+          <div className="route-line left-[2%] right-[38%] top-[0.3rem]" />
+          <div className="route-dot left-[1.5%] top-[-0.28rem]" />
+          <div className="route-dot right-[37.5%] top-[-0.28rem]" />
+        </div>
         <Container className="py-10 sm:py-12 lg:py-14">
           <div className="grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
             <div className="space-y-6">
               <SiteBrand variant="footer" className="w-fit" />
               <div className="max-w-2xl space-y-4">
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-white/44">
-                  Финальный блок
-                </p>
                 <h2 className="display-font max-w-[12ch] text-balance text-[2.3rem] leading-[0.96] font-semibold tracking-[-0.055em] text-white sm:text-[2.9rem] lg:text-[3.5rem]">
-                  Спокойный сервисный сайт для реальных логистических задач в Москве.
+                  Помогаем быстро выбрать подходящий сервис доставки.
                 </h2>
-                <p className="max-w-xl text-base leading-7 text-white/68 sm:text-lg">
-                  Работаем как аккуратная точка входа в экосистему CDEK: с понятной
-                  навигацией, проверяемыми фактами, контактами и маршрутами без
-                  визуального шума.
+                <p className="copy-justify max-w-xl text-base leading-7 text-white/68 sm:text-[1.02rem]">
+                  Здесь собраны основные услуги, контакты и информация для частных
+                  клиентов, бизнеса, интернет-магазинов и продавцов
+                  маркетплейсов.
                 </p>
               </div>
             </div>
@@ -99,7 +101,7 @@ export function SiteFooter() {
           </div>
 
           <div className="grid gap-4 border-t border-white/10 pt-7 text-sm text-white/58 lg:grid-cols-[1fr_auto] lg:items-center">
-            <p>Сайт создан как сервисный digital-слой под частных клиентов, бизнес и e-commerce.</p>
+            <p>Сайт разработан командой ООО &quot;Гонецъ&quot;.</p>
             <p className="font-mono text-[0.72rem] uppercase tracking-[0.22em]">
               © {new Date().getFullYear()} {companyInfo.shortName}
             </p>

@@ -27,17 +27,17 @@ import {
 export const metadata = buildPageMetadata({
   title: "Сервисы доставки СДЭК в Москве для бизнеса и частных клиентов | Гонецъ",
   description:
-    "Офис логистических решений в экосистеме СДЭК: отправка посылок и документов, договоры для бизнеса, доставка для интернет-магазинов и marketplace-продавцов, международные направления и сопровождение в Москве.",
+    "Локальный офис сервисов СДЭК в Москве: посылки и документы, доставка для бизнеса, интернет-магазинов и продавцов маркетплейсов.",
   path: "/",
 });
 
 const audienceStyles = [
-  "xl:col-span-5 xl:min-h-[21rem] bg-white/96",
-  "xl:col-span-4 xl:min-h-[21rem] bg-white/92",
-  "xl:col-span-3 xl:min-h-[21rem] bg-brand-soft/70",
-  "xl:col-span-3 xl:min-h-[19rem] bg-white/92",
-  "xl:col-span-4 xl:min-h-[19rem] bg-white/96",
-  "xl:col-span-5 xl:min-h-[19rem] bg-white/92",
+  "xl:col-span-4 xl:min-h-[19.5rem] bg-white/96",
+  "xl:col-span-4 xl:min-h-[19.5rem] bg-white/94",
+  "xl:col-span-4 xl:min-h-[19.5rem] bg-brand-soft/56",
+  "xl:col-span-4 xl:min-h-[19.5rem] bg-white/94",
+  "xl:col-span-4 xl:min-h-[19.5rem] bg-white/96",
+  "xl:col-span-4 xl:min-h-[19.5rem] bg-white/94",
 ];
 
 const audienceBadges = [
@@ -45,7 +45,7 @@ const audienceBadges = [
   "B2B",
   "D2C",
   "FBO / FBS",
-  "Складской контур",
+  "Склад и сборка",
   "Cross-border",
 ];
 
@@ -61,13 +61,13 @@ export default function HomePage() {
                   <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
                 </div>
                 <div className="space-y-5">
-                  <h1 className="display-font max-w-[10ch] text-[1.92rem] leading-[0.95] font-semibold tracking-[-0.055em] text-foreground text-balance sm:text-[2.35rem] lg:text-[2.75rem] xl:text-[3.05rem]">
+                  <h1 className="display-font max-w-[12ch] text-[1.36rem] leading-[0.98] font-semibold tracking-[-0.048em] text-foreground text-balance sm:text-[1.72rem] lg:text-[1.98rem] xl:text-[2.14rem]">
                     Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                   </h1>
-                  <p className="max-w-xl text-base leading-7 text-muted sm:text-[1.08rem] sm:leading-8">
-                    Локальный сервисный офис в брендовом поле CDEK: от частных
-                    отправлений и корпоративной логистики до e-commerce,
-                    маркетплейсов и фулфилмент-сценариев.
+                  <p className="copy-justify max-w-xl text-base leading-7 text-muted sm:text-[1.04rem] sm:leading-8">
+                    Локальный офис СДЭК в Москве для частных отправлений, доставки
+                    для бизнеса, интернет-магазинов, продавцов маркетплейсов и
+                    международных направлений.
                   </p>
                 </div>
 
@@ -78,15 +78,15 @@ export default function HomePage() {
                   </ButtonLink>
                   <span className="inline-flex items-center gap-2 text-sm text-muted">
                     <CheckCircle2 className="size-4 text-brand" />
-                    Ответим по задаче и подскажем рабочий сценарий
+                    Подскажем формат и поможем быстро перейти к заявке
                   </span>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[
-                    "Один вход для B2C, B2B и e-commerce",
-                    "Чётко разводим офисные и складские сценарии",
-                    "Юридические данные и контакты открыты сразу",
+                    "Один вход для частных клиентов, бизнеса и e-commerce",
+                    "Понятно разделены доставка, склад и фулфилмент",
+                    "Контакты и реквизиты доступны без лишнего поиска",
                   ].map((item) => (
                     <div
                       key={item}
@@ -99,7 +99,7 @@ export default function HomePage() {
               </Reveal>
 
               <Reveal className="xl:col-span-7" delay={0.08} x={24}>
-                <div className="relative aspect-[1.28/1] overflow-hidden rounded-[2.2rem]">
+                <div className="relative aspect-[1.12/1] overflow-hidden rounded-[2.2rem]">
                   <Image
                     src="/hero-main-cdek.png"
                     alt="Иллюстрация доставки: самолёт, склад, контейнеры, грузовой маршрут и логистическая инфраструктура"
@@ -124,8 +124,8 @@ export default function HomePage() {
           <Reveal>
             <SectionHeading
               eyebrow="Аудитории"
-              title="Структура сайта сразу делит поток по задачам, а не заставляет всех читать одно и то же"
-              description="Это важно и для конверсии, и для SEO: каждая аудитория получает отдельную страницу, понятный язык и нужный CTA."
+              title="Каждая аудитория получает свой раздел, понятный текст и короткий путь к заявке"
+              description="Так человеку проще сразу перейти в нужный раздел, а странице легче удержать внимание без перегруза."
             />
           </Reveal>
           <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
@@ -144,10 +144,10 @@ export default function HomePage() {
                       {audienceBadges[index]}
                     </span>
                   </div>
-                  <h2 className="display-font text-[1.72rem] leading-[1.06] font-semibold tracking-[-0.045em] text-foreground sm:text-[1.95rem]">
+                  <h2 className="display-font max-w-[14ch] text-[1.5rem] leading-[1.08] font-semibold tracking-[-0.038em] text-foreground sm:text-[1.66rem]">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                  <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{item.description}</p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand-deep group-hover:text-brand">
                     Перейти на страницу
                     <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -165,9 +165,10 @@ export default function HomePage() {
             <Reveal x={-22}>
               <SectionHeading
                 eyebrow="Как устроен сервис"
-                title="Подача выдержана в бренде CDEK, а красота собирается через ритм, типографику и дисциплину интерфейса"
-                description="Мы не уходим в яркий промо-хаос. Вся выразительность строится на фирменном зелёном, графитовых поверхностях, строгой сетке и спокойных переходах."
-                titleClassName="max-w-[12ch] text-[1.7rem] sm:text-[2rem] lg:text-[2.35rem]"
+                title="Сайт собран спокойно и понятно, чтобы услуга читалась с первого экрана"
+                description="Здесь нет лишнего визуального шума: только чистая сетка, фирменный зелёный и понятные акценты на главном."
+                className="max-w-[40rem]"
+                titleClassName="max-w-[16ch] text-[1.48rem] sm:text-[1.76rem] lg:text-[1.98rem] xl:text-[2.14rem] leading-[1.01] tracking-[-0.042em]"
               />
             </Reveal>
             <StaggerGroup className="grid gap-4 md:grid-cols-2">
@@ -184,7 +185,7 @@ export default function HomePage() {
                     <h3 className="display-font text-[1.35rem] leading-[1.08] font-semibold tracking-[-0.035em] text-foreground">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-base leading-7 text-muted">{item.description}</p>
+                    <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{item.description}</p>
                   </article>
                 </StaggerItem>
               ))}
@@ -200,24 +201,25 @@ export default function HomePage() {
               <Reveal x={-24}>
                 <SectionHeading
                   eyebrow="Ключевые сервисы"
-                  title="Логика блоков выстроена как сервисная редактура, а не как набор одинаковых карточек"
+                  title="Главные услуги собраны в ровные и понятные блоки"
                   description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
                   inverse
-                  titleClassName="max-w-[11ch] text-[1.85rem] sm:text-[2.2rem] lg:text-[2.6rem]"
-                  descriptionClassName="max-w-[30rem]"
+                  className="max-w-[39rem]"
+                  titleClassName="max-w-[15ch] text-[1.58rem] sm:text-[1.92rem] lg:text-[2.14rem] xl:text-[2.3rem] leading-[1.01] tracking-[-0.042em]"
+                  descriptionClassName="max-w-[34rem] text-white/64"
                 />
               </Reveal>
               <Reveal delay={0.08}>
                 <div className="rounded-[1.9rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
-                  Секции не конкурируют друг с другом за внимание: каждая отвечает на
-                  свою задачу, а вместе они складываются в один спокойный маршрут до
-                  заявки.
+                  Каждый блок отвечает на свою задачу. Вместе они дают человеку
+                  понятную картину услуг и не заставляют разбираться в лишних
+                  деталях.
                 </div>
               </Reveal>
             </div>
             <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 lg:grid-cols-12">
               {serviceRails.map((item, index) => (
-                <StaggerItem key={item.title} hover className={index === 0 ? "lg:col-span-5" : index === 1 ? "lg:col-span-4" : "lg:col-span-3"}>
+                <StaggerItem key={item.title} hover className="lg:col-span-4">
                   <article
                     className={`flex h-full min-w-0 flex-col rounded-[2rem] border border-white/10 p-6 ${
                       index === 0 ? "bg-white/6" : index === 1 ? "bg-white/9" : "bg-white/6"
@@ -226,10 +228,12 @@ export default function HomePage() {
                     <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/42">
                       {item.kicker}
                     </p>
-                    <h2 className="display-font mt-5 text-[1.7rem] leading-[1.06] font-semibold tracking-[-0.045em] text-white">
+                    <h2 className="display-font mt-5 max-w-[14ch] text-[1.42rem] leading-[1.08] font-semibold tracking-[-0.038em] text-white sm:text-[1.52rem]">
                       {item.title}
                     </h2>
-                    <p className="mt-4 text-base leading-7 text-white/66">{item.description}</p>
+                    <p className="copy-justify mt-4 max-w-[28rem] text-[0.98rem] leading-7 text-white/66">
+                      {item.description}
+                    </p>
                     <InlineLink href={item.href} className="mt-5 text-brand-soft">
                       Открыть раздел
                     </InlineLink>
@@ -243,13 +247,18 @@ export default function HomePage() {
 
       <section className="pb-18 sm:pb-24">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_.98fr]">
-            <SectionHeading
-              eyebrow="Путь клиента"
-              title="Сценарий запуска строится по шагам: от брифа до работающего логистического контура"
-              description="Подход одинаково полезен для B2C-запроса, корпоративной доставки и более сложного e-commerce-потока."
-            />
-            <div className="space-y-4">
+          <div className="grid gap-10 lg:grid-cols-[1.08fr_.92fr] lg:items-start">
+            <Reveal x={-20}>
+              <SectionHeading
+                eyebrow="Путь клиента"
+                title="Работа с заявкой идёт по понятным шагам: от запроса до запуска"
+                description="Такой подход подходит и для частного запроса, и для корпоративной доставки, и для e-commerce."
+                className="max-w-[42rem]"
+                titleClassName="max-w-[15ch] text-[1.62rem] sm:text-[1.96rem] lg:text-[2.22rem] xl:text-[2.42rem] leading-[1.01] tracking-[-0.044em]"
+                descriptionClassName="max-w-[33rem]"
+              />
+            </Reveal>
+            <div className="space-y-4 lg:pt-1">
               {launchSteps.map((step, index) => (
                 <article
                   key={step.title}
@@ -261,7 +270,7 @@ export default function HomePage() {
                   <h3 className="display-font mt-4 text-[1.5rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
                     {step.title}
                   </h3>
-                  <p className="mt-4 text-base leading-7 text-muted">{step.description}</p>
+                  <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{step.description}</p>
                 </article>
               ))}
             </div>
@@ -275,8 +284,8 @@ export default function HomePage() {
             <div className="space-y-6">
               <SectionHeading
                 eyebrow="Контакты и доверие"
-                title="Юридическая прозрачность встроена в структуру сайта, а не спрятана в конце"
-                description="Реквизиты, контакты, правовые страницы и формы сведены в единый спокойный контур. Так сайт выглядит серьёзно и работает на доверие."
+                title="Контакты, реквизиты и правовая информация показаны открыто и без перегруза"
+                description="Так посетителю не нужно искать важные данные по сайту, а сама страница выглядит спокойнее и надёжнее."
               />
               <div className="grid gap-4 sm:grid-cols-2">
                 {detailsCards.map((card) => (
@@ -287,7 +296,7 @@ export default function HomePage() {
                     <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                       {card.title}
                     </p>
-                    <p className="mt-3 text-base font-semibold leading-7 tracking-[-0.02em] text-foreground">
+                    <p className="copy-justify mt-3 text-base font-semibold leading-7 tracking-[-0.02em] text-foreground">
                       {card.description}
                     </p>
                   </article>
@@ -310,7 +319,7 @@ export default function HomePage() {
                     <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                       Каналы связи
                     </p>
-                    <p className="mt-3 max-w-md text-sm leading-6 text-muted">
+                    <p className="copy-justify mt-3 max-w-md text-sm leading-6 text-muted">
                       Быстрые каналы для прямого обращения без лишних поисков по сайту.
                     </p>
                   </div>
@@ -344,11 +353,10 @@ export default function HomePage() {
                 <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-white/44">
                   Важно
                 </p>
-                <p className="mt-4 text-base leading-7 text-white/68">
-                  На сайте отдельно показано, что фулфилмент относится к отдельной
-                  инфраструктуре CDEK Fulfillment, а широкая сеть офисов и пунктов
-                  выдачи — к другой части системы. Это помогает говорить по фактам и
-                  не обещать лишнего.
+                <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-white/68">
+                  Мы отдельно показываем, что фулфилмент и обычная доставка решают
+                  разные задачи. Это помогает объяснять услуги честно и не обещать
+                  лишнего.
                 </p>
               </div>
             </div>
@@ -358,17 +366,20 @@ export default function HomePage() {
 
       <section className="pb-18 sm:pb-24">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_.8fr]">
-            <div>
+          <div className="grid gap-10 lg:grid-cols-[1.02fr_.98fr] lg:items-start">
+            <div className="space-y-6">
               <SectionHeading
                 eyebrow="FAQ"
                 title="Частые вопросы до первого обращения"
                 description="Ответы написаны так, чтобы снять лишнее напряжение ещё до звонка или заявки."
+                className="max-w-[40rem]"
+                titleClassName="max-w-[14ch] text-[1.72rem] sm:text-[2.08rem] lg:text-[2.36rem] xl:text-[2.58rem] leading-[1.01] tracking-[-0.044em]"
+                descriptionClassName="max-w-[32rem]"
               />
               <FaqAccordion items={sharedFaq} className="mt-10" />
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 lg:pt-[7.5rem] xl:pt-[8rem]">
               <div className="surface-card section-shell rounded-[2rem] border border-foreground/8 p-6">
                 <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                   Дополнительно
@@ -381,7 +392,7 @@ export default function HomePage() {
                     <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
                       Доставка документов
                     </p>
-                    <p className="mt-3 text-sm leading-6 text-muted">
+                    <p className="copy-justify mt-3 text-sm leading-6 text-muted">
                       Отдельная посадочная страница под частые B2B- и B2C-сценарии.
                     </p>
                   </Link>
@@ -392,9 +403,9 @@ export default function HomePage() {
                     <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
                       Расчёт логистики
                     </p>
-                    <p className="mt-3 text-sm leading-6 text-muted">
-                      Удобная страница, чтобы собрать заявку отдельно от основного
-                      контента и вести рекламу на конкретный CTA.
+                    <p className="copy-justify mt-3 text-sm leading-6 text-muted">
+                      Отдельная страница для заявок, чтобы человек мог быстро оставить
+                      запрос без чтения всей главной.
                     </p>
                   </Link>
                 </div>
@@ -406,12 +417,12 @@ export default function HomePage() {
 
       <section className="pb-18 sm:pb-24" id="request">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
-            <div className="surface-dark rounded-[2.2rem] border border-white/8 p-6 text-white sm:p-8">
+          <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
+            <div className="surface-dark self-start rounded-[2.2rem] border border-white/8 p-6 text-white sm:p-8">
               <SectionHeading
                 eyebrow="Заявка"
-                title="Получите расчёт или обсудите сценарий доставки"
-                description="Форма подходит и для разовой отправки, и для более сложной логистики. Оставьте задачу, а дальше спокойно переведём её в понятный рабочий сценарий."
+                title="Получите расчёт или обсудите формат доставки"
+                description="Форма подходит и для разовой отправки, и для более сложной задачи. Опишите, что нужно, а мы подскажем следующий шаг."
                 inverse
                 titleClassName="max-w-[12ch]"
               />
