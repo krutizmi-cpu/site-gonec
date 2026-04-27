@@ -61,10 +61,10 @@ export default function HomePage() {
                   <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
                 </div>
                 <div className="space-y-5">
-                  <h1 className="display-font max-w-[12ch] text-[1.36rem] leading-[0.98] font-semibold tracking-[-0.048em] text-foreground text-balance sm:text-[1.72rem] lg:text-[1.98rem] xl:text-[2.14rem]">
+                  <h1 className="display-font max-w-[14ch] text-[1.42rem] leading-[0.96] font-semibold tracking-[-0.044em] text-foreground text-balance sm:text-[1.8rem] lg:text-[2.12rem] xl:text-[2.34rem]">
                     Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                   </h1>
-                  <p className="copy-justify max-w-xl text-base leading-7 text-muted sm:text-[1.04rem] sm:leading-8">
+                  <p className="max-w-xl text-base leading-7 text-muted sm:text-[1.04rem] sm:leading-8">
                     Локальный офис СДЭК в Москве для частных отправлений, доставки
                     для бизнеса, интернет-магазинов, продавцов маркетплейсов и
                     международных направлений.
@@ -124,8 +124,8 @@ export default function HomePage() {
           <Reveal>
             <SectionHeading
               eyebrow="Аудитории"
-              title="Каждая аудитория получает свой раздел, понятный текст и короткий путь к заявке"
-              description="Так человеку проще сразу перейти в нужный раздел, а странице легче удержать внимание без перегруза."
+              title="Услуги СДЭК в Москве для частных клиентов, бизнеса и e-commerce"
+              description="Выберите раздел под свою задачу: посылки и документы, доставка для компании, интернет-магазина, маркетплейсов или международных отправлений."
             />
           </Reveal>
           <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
@@ -165,8 +165,8 @@ export default function HomePage() {
             <Reveal x={-22}>
               <SectionHeading
                 eyebrow="Как устроен сервис"
-                title="Сайт собран спокойно и понятно, чтобы услуга читалась с первого экрана"
-                description="Здесь нет лишнего визуального шума: только чистая сетка, фирменный зелёный и понятные акценты на главном."
+                title="Помогаем быстро выбрать подходящий сервис доставки СДЭК в Москве"
+                description="На сайте собраны основные услуги: частные отправления, доставка для бизнеса, интернет-магазинов, маркетплейсов и международных направлений."
                 className="max-w-[40rem]"
                 titleClassName="max-w-[16ch] text-[1.48rem] sm:text-[1.76rem] lg:text-[1.98rem] xl:text-[2.14rem] leading-[1.01] tracking-[-0.042em]"
               />
@@ -201,8 +201,8 @@ export default function HomePage() {
               <Reveal x={-24}>
                 <SectionHeading
                   eyebrow="Ключевые сервисы"
-                  title="Главные услуги собраны в ровные и понятные блоки"
-                  description="Ниже три главные зоны сайта: частные отправления, корпоративная логистика и электронная коммерция."
+                  title="Частные отправления, доставка для бизнеса и услуги для e-commerce"
+                  description="Ниже три основные группы услуг, с которых чаще всего начинается обращение в СДЭК."
                   inverse
                   className="max-w-[39rem]"
                   titleClassName="max-w-[15ch] text-[1.58rem] sm:text-[1.92rem] lg:text-[2.14rem] xl:text-[2.3rem] leading-[1.01] tracking-[-0.042em]"
@@ -211,9 +211,9 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={0.08}>
                 <div className="rounded-[1.9rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
-                  Каждый блок отвечает на свою задачу. Вместе они дают человеку
-                  понятную картину услуг и не заставляют разбираться в лишних
-                  деталях.
+                  Если нужно отправить посылку, подключить доставку для компании
+                  или обсудить работу с интернет-магазином, можно сразу перейти в
+                  нужный раздел и оставить заявку.
                 </div>
               </Reveal>
             </div>
@@ -283,9 +283,9 @@ export default function HomePage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_1.04fr]">
             <div className="space-y-6">
               <SectionHeading
-                eyebrow="Контакты и доверие"
-                title="Контакты, реквизиты и правовая информация показаны открыто и без перегруза"
-                description="Так посетителю не нужно искать важные данные по сайту, а сама страница выглядит спокойнее и надёжнее."
+                eyebrow="Контакты и реквизиты"
+                title="Все основные контакты и реквизиты собраны в одном месте"
+                description="Если нужно быстро связаться с нами или проверить данные компании, всё важное доступно на одной странице."
               />
               <div className="grid gap-4 sm:grid-cols-2">
                 {detailsCards.map((card) => (
@@ -320,7 +320,7 @@ export default function HomePage() {
                       Каналы связи
                     </p>
                     <p className="copy-justify mt-3 max-w-md text-sm leading-6 text-muted">
-                      Быстрые каналы для прямого обращения без лишних поисков по сайту.
+                      Выберите удобный способ связи: телефон, e-mail или заявка на расчёт.
                     </p>
                   </div>
                   <div className="inline-flex size-11 items-center justify-center rounded-full border border-foreground/8 bg-brand-soft text-brand-deep">
@@ -393,7 +393,7 @@ export default function HomePage() {
                       Доставка документов
                     </p>
                     <p className="copy-justify mt-3 text-sm leading-6 text-muted">
-                      Отдельная посадочная страница под частые B2B- и B2C-сценарии.
+                      Раздел для отправки документов по Москве, России и международным направлениям.
                     </p>
                   </Link>
                   <Link
@@ -404,8 +404,7 @@ export default function HomePage() {
                       Расчёт логистики
                     </p>
                     <p className="copy-justify mt-3 text-sm leading-6 text-muted">
-                      Отдельная страница для заявок, чтобы человек мог быстро оставить
-                      запрос без чтения всей главной.
+                      Страница для быстрой заявки, если нужно заранее обсудить объём, маршрут или формат доставки.
                     </p>
                   </Link>
                 </div>

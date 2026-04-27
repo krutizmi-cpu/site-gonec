@@ -5,7 +5,7 @@ import { companyInfo, detailsCards } from "@/lib/site-data";
 export const metadata = buildPageMetadata({
   title: 'Реквизиты ООО "Гонецъ" | Гонецъ',
   description:
-    'Реквизиты ООО "Гонецъ": ОГРН, ИНН, КПП и юридический адрес для размещения на сайте и в документах.',
+    'Реквизиты ООО "Гонецъ": ОГРН, ИНН, КПП и юридический адрес компании.',
   path: "/details",
 });
 
@@ -17,13 +17,13 @@ export default function DetailsPage() {
           <div className="surface-dark rounded-[2.3rem] border border-white/8 p-6 text-white sm:p-8 lg:p-10">
             <SectionHeading
               eyebrow="Реквизиты"
-              title="Юридические данные компании как самостоятельный trust-блок"
-              description="Здесь собраны базовые реквизиты в аккуратной, спокойной и пригодной для использования форме."
+              title="Реквизиты компании"
+              description="Здесь собраны основные юридические данные ООО «Гонецъ»."
               inverse
             />
-            <div className="mt-8 rounded-[1.8rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
-              Такой формат работает и как самостоятельная страница доверия, и как
-              источник данных для футера, коммерческих материалов и заявок.
+            <div className="copy-justify mt-8 rounded-[1.8rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
+              Эти данные могут понадобиться при оформлении документов, проверке
+              компании или согласовании сотрудничества.
             </div>
           </div>
 

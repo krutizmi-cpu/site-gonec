@@ -22,8 +22,8 @@ export default function FaqPage() {
           <div className="surface-dark rounded-[2.3rem] border border-white/8 p-6 text-white sm:p-8 lg:p-10">
             <SectionHeading
               eyebrow="FAQ"
-              title="Частые вопросы по услугам и структуре сайта"
-              description="Подходит и для обычного пользователя, и для бизнеса: ответы собраны в спокойный, понятный и не перегруженный блок."
+              title="Частые вопросы по доставке, отправлениям и услугам СДЭК"
+              description="Собрали ответы на вопросы, которые чаще всего возникают у частных клиентов, бизнеса и интернет-магазинов."
               inverse
             />
             <div className="copy-justify mt-8 rounded-[1.8rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
