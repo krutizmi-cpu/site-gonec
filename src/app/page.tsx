@@ -98,18 +98,16 @@ export default function HomePage() {
                 </div>
               </Reveal>
 
-              <Reveal className="xl:col-span-7 xl:pt-1" delay={0.08} x={24}>
-                <div className="surface-card overflow-hidden rounded-[2.5rem] border border-foreground/8 bg-white/92 p-2.5 shadow-[0_18px_40px_rgba(17,23,21,0.06)] sm:p-3.5">
-                  <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem] bg-[#f8faf8] sm:aspect-[16/10] xl:aspect-[16/10]">
-                    <Image
-                      src="/hero-main-cdek.png"
-                      alt="Иллюстрация доставки: самолёт, склад, контейнеры, грузовой маршрут и логистическая инфраструктура"
-                      fill
-                      priority
-                      className="object-contain object-center"
-                      sizes="(min-width: 1280px) 52vw, 100vw"
-                    />
-                  </div>
+              <Reveal className="xl:col-span-7" delay={0.08} x={24}>
+                <div className="relative aspect-[1.28/1] overflow-hidden rounded-[2.2rem]">
+                  <Image
+                    src="/hero-main-cdek.png"
+                    alt="Иллюстрация доставки: самолёт, склад, контейнеры, грузовой маршрут и логистическая инфраструктура"
+                    fill
+                    priority
+                    className="object-cover object-center scale-[1.06]"
+                    sizes="(min-width: 1280px) 52vw, 100vw"
+                  />
                 </div>
               </Reveal>
             </div>

@@ -33,6 +33,29 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
   const faqSchema = buildFaqSchema(page.title, page.faq);
   const serviceOptions = Object.values(marketingPages).map((item) => item.label);
   const solutionSpans = ["lg:col-span-5", "lg:col-span-4", "lg:col-span-3", "lg:col-span-6"];
+  const imagePages = [
+    "private",
+    "business",
+    "online-stores",
+    "marketplaces",
+    "fulfillment",
+    "international",
+  ];
+  const hasEditorialHeroArtwork = imagePages.includes(page.slug);
+  const heroImageClass =
+    page.slug === "private"
+      ? "object-cover object-center scale-[1.14]"
+      : page.slug === "business"
+        ? "object-cover object-center scale-[1.08]"
+      : page.slug === "online-stores"
+        ? "object-cover object-center scale-[1.08]"
+      : page.slug === "marketplaces"
+        ? "object-cover object-center scale-[1.08]"
+      : page.slug === "fulfillment"
+        ? "object-cover object-center scale-[1.08]"
+      : page.slug === "international"
+        ? "object-cover object-center scale-[1.08]"
+      : "object-cover object-center";
   const heroArtwork =
     page.slug === "private"
       ? {
@@ -48,7 +71,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
           description:
             "Корпоративный сценарий: консультация, согласование процесса, отправки, обработка и логистическое сопровождение.",
         }
-      : page.slug === "ecommerce"
+      : page.slug === "online-stores"
       ? {
           src: "/online-store-hero-cdek.png",
           alt: "Иллюстрация для интернет-магазина: витрина, склад, заказы, аналитика, доставка и e-commerce-маршрут",
@@ -83,17 +106,10 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
       <section className="pb-18 pt-12 sm:pb-24 sm:pt-16">
         <Container>
           <div className="editorial-frame surface-card section-shell rounded-[2.6rem] border border-foreground/8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-12">
+            <div className="grid items-center gap-8 xl:grid-cols-12 xl:gap-10">
               <Reveal
                 className={`min-w-0 space-y-7 ${
-                  page.slug === "private" ||
-                  page.slug === "business" ||
-                  page.slug === "ecommerce" ||
-                  page.slug === "marketplaces" ||
-                  page.slug === "fulfillment" ||
-                  page.slug === "international"
-                    ? "xl:col-span-6"
-                    : "xl:col-span-7"
+                  hasEditorialHeroArtwork ? "xl:col-span-5" : "xl:col-span-7"
                 }`}
                 x={-22}
               >
@@ -102,18 +118,8 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                 </div>
                 <h1
                   className={`display-font text-balance leading-[0.92] font-semibold tracking-[-0.065em] text-foreground ${
-                    page.slug === "private"
-                      ? "max-w-[11ch] text-[2rem] sm:text-[2.45rem] lg:text-[2.9rem] xl:text-[3.25rem]"
-                      : page.slug === "business"
-                        ? "max-w-[11ch] text-[1.98rem] sm:text-[2.4rem] lg:text-[2.85rem] xl:text-[3.2rem]"
-                        : page.slug === "ecommerce"
-                          ? "max-w-[11ch] text-[1.95rem] sm:text-[2.35rem] lg:text-[2.8rem] xl:text-[3.15rem]"
-                          : page.slug === "marketplaces"
-                            ? "max-w-[11ch] text-[1.95rem] sm:text-[2.35rem] lg:text-[2.8rem] xl:text-[3.15rem]"
-                          : page.slug === "fulfillment"
-                            ? "max-w-[11ch] text-[1.95rem] sm:text-[2.35rem] lg:text-[2.8rem] xl:text-[3.15rem]"
-                          : page.slug === "international"
-                            ? "max-w-[11ch] text-[1.95rem] sm:text-[2.35rem] lg:text-[2.8rem] xl:text-[3.15rem]"
+                    hasEditorialHeroArtwork
+                      ? "max-w-[11ch] text-[1.92rem] sm:text-[2.3rem] lg:text-[2.72rem] xl:text-[3.02rem]"
                       : "max-w-[12ch] text-[2.08rem] sm:text-[2.6rem] lg:text-[3.05rem] xl:text-[3.45rem]"
                   }`}
                 >
@@ -141,25 +147,11 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
 
               {heroArtwork ? (
                 <Reveal
-                  className={`relative overflow-hidden rounded-[2.2rem] border xl:pt-3 ${
-                    page.slug === "private" ||
-                    page.slug === "business" ||
-                    page.slug === "ecommerce" ||
-                    page.slug === "marketplaces" ||
-                    page.slug === "fulfillment" ||
-                    page.slug === "international"
-                      ? "surface-card border-foreground/8 bg-white/88 xl:col-span-6"
-                      : "surface-dark mesh-accent border-white/8 xl:col-span-5"
-                  }`}
+                  className={hasEditorialHeroArtwork ? "xl:col-span-7" : "relative overflow-hidden rounded-[2.2rem] border border-white/8 surface-dark mesh-accent xl:col-span-5 xl:pt-3"}
                   x={24}
                   delay={0.08}
                 >
-                  {page.slug !== "private" &&
-                  page.slug !== "business" &&
-                  page.slug !== "ecommerce" &&
-                  page.slug !== "marketplaces" &&
-                  page.slug !== "fulfillment" &&
-                  page.slug !== "international" ? (
+                  {!hasEditorialHeroArtwork ? (
                     <>
                       <div className="absolute left-5 top-5 z-10 inline-flex rounded-full border border-white/12 bg-white/8 px-3 py-2 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-white/74 backdrop-blur-md">
                         Кратко
@@ -169,53 +161,14 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                       </div>
                     </>
                   ) : null}
-                  <div
-                    className={`relative ${
-                      page.slug === "private"
-                        ? "aspect-[1.2/1]"
-                        : page.slug === "business"
-                          ? "aspect-[1.4/1]"
-                          : page.slug === "ecommerce"
-                            ? "aspect-[1.42/1]"
-                            : page.slug === "marketplaces"
-                            ? "aspect-[1.42/1]"
-                            : page.slug === "fulfillment"
-                              ? "aspect-[1.42/1]"
-                            : page.slug === "international"
-                              ? "aspect-[1.42/1]"
-                          : "aspect-[4/3]"
-                    }`}
-                  >
+                  <div className={hasEditorialHeroArtwork ? "relative aspect-[1.28/1] overflow-hidden rounded-[2.2rem]" : "relative aspect-[4/3]"}>
                     <Image
                       src={heroArtwork.src}
                       alt={heroArtwork.alt}
                       fill
                       priority
-                      className={
-                        page.slug === "private"
-                          ? "object-cover object-center scale-[1.14]"
-                          : page.slug === "business"
-                            ? "object-contain object-center p-3 sm:p-5"
-                            : page.slug === "ecommerce"
-                              ? "object-contain object-center p-3 sm:p-5"
-                              : page.slug === "marketplaces"
-                              ? "object-contain object-center p-3 sm:p-5"
-                              : page.slug === "fulfillment"
-                                ? "object-contain object-center p-3 sm:p-5"
-                              : page.slug === "international"
-                                ? "object-contain object-center p-3 sm:p-5"
-                            : "object-cover"
-                      }
-                      sizes={
-                        page.slug === "private" ||
-                        page.slug === "business" ||
-                        page.slug === "ecommerce" ||
-                        page.slug === "marketplaces" ||
-                        page.slug === "fulfillment" ||
-                        page.slug === "international"
-                          ? "(min-width: 1280px) 44vw, 100vw"
-                          : "(min-width: 1280px) 38vw, 100vw"
-                      }
+                      className={hasEditorialHeroArtwork ? heroImageClass : "object-cover"}
+                      sizes={hasEditorialHeroArtwork ? "(min-width: 1280px) 52vw, 100vw" : "(min-width: 1280px) 38vw, 100vw"}
                     />
                   </div>
                 </Reveal>
