@@ -61,7 +61,7 @@ export default function HomePage() {
                   <Eyebrow>Москва · частные клиенты · бизнес · e-commerce</Eyebrow>
                 </div>
                 <div className="space-y-5">
-                  <h1 className="display-font max-w-[14ch] text-[1.42rem] leading-[0.96] font-semibold tracking-[-0.044em] text-foreground text-balance sm:text-[1.8rem] lg:text-[2.12rem] xl:text-[2.34rem]">
+                  <h1 className="display-font max-w-[16ch] text-[1.42rem] leading-[0.96] font-semibold tracking-[-0.044em] text-foreground text-balance sm:text-[1.8rem] lg:text-[2.12rem] xl:text-[2.34rem]">
                     Сервисы доставки СДЭК в Москве для частных клиентов, бизнеса и e-commerce
                   </h1>
                   <p className="max-w-xl text-base leading-7 text-muted sm:text-[1.04rem] sm:leading-8">
@@ -126,6 +126,9 @@ export default function HomePage() {
               eyebrow="Аудитории"
               title="Услуги СДЭК в Москве для частных клиентов, бизнеса и e-commerce"
               description="Выберите раздел под свою задачу: посылки и документы, доставка для компании, интернет-магазина, маркетплейсов или международных отправлений."
+              className="max-w-[46rem]"
+              titleClassName="max-w-[17ch] lg:text-[2.56rem]"
+              descriptionClassName="max-w-[40rem]"
             />
           </Reveal>
           <StaggerGroup className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-12">
@@ -144,7 +147,7 @@ export default function HomePage() {
                       {audienceBadges[index]}
                     </span>
                   </div>
-                  <h2 className="display-font max-w-[14ch] text-[1.5rem] leading-[1.08] font-semibold tracking-[-0.038em] text-foreground sm:text-[1.66rem]">
+                  <h2 className="display-font text-balance max-w-[14ch] text-[1.5rem] leading-[1.08] font-semibold tracking-[-0.038em] text-foreground sm:text-[1.66rem]">
                     {item.title}
                   </h2>
                   <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{item.description}</p>
@@ -164,11 +167,12 @@ export default function HomePage() {
           <div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr]">
             <Reveal x={-22}>
               <SectionHeading
-                eyebrow="Как устроен сервис"
+                eyebrow="Преимущества"
                 title="Помогаем быстро выбрать подходящий сервис доставки СДЭК в Москве"
-                description="На сайте собраны основные услуги: частные отправления, доставка для бизнеса, интернет-магазинов, маркетплейсов и международных направлений."
-                className="max-w-[40rem]"
-                titleClassName="max-w-[16ch] text-[1.48rem] sm:text-[1.76rem] lg:text-[1.98rem] xl:text-[2.14rem] leading-[1.01] tracking-[-0.042em]"
+                description="Помогаем с частными отправлениями, доставкой для бизнеса, интернет-магазинов, маркетплейсов и международными направлениями."
+                className="max-w-[42rem]"
+                titleClassName="max-w-[18ch] text-[1.48rem] sm:text-[1.76rem] lg:text-[2.04rem] xl:text-[2.18rem] leading-[1.02] tracking-[-0.04em]"
+                descriptionClassName="max-w-[39rem]"
               />
             </Reveal>
             <StaggerGroup className="grid gap-4 md:grid-cols-2">
@@ -182,7 +186,7 @@ export default function HomePage() {
                     <div className="mb-5 inline-flex size-11 items-center justify-center rounded-full border border-foreground/8 bg-white/80 text-sm font-semibold text-brand-deep shadow-[0_8px_18px_rgba(17,23,21,0.05)]">
                       0{index + 1}
                     </div>
-                    <h3 className="display-font text-[1.35rem] leading-[1.08] font-semibold tracking-[-0.035em] text-foreground">
+                    <h3 className="display-font text-balance text-[1.35rem] leading-[1.08] font-semibold tracking-[-0.035em] text-foreground">
                       {item.title}
                     </h3>
                     <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{item.description}</p>
@@ -204,16 +208,16 @@ export default function HomePage() {
                   title="Частные отправления, доставка для бизнеса и услуги для e-commerce"
                   description="Ниже три основные группы услуг, с которых чаще всего начинается обращение в СДЭК."
                   inverse
-                  className="max-w-[39rem]"
-                  titleClassName="max-w-[15ch] text-[1.58rem] sm:text-[1.92rem] lg:text-[2.14rem] xl:text-[2.3rem] leading-[1.01] tracking-[-0.042em]"
-                  descriptionClassName="max-w-[34rem] text-white/64"
+                  className="max-w-[44rem]"
+                  titleClassName="max-w-[18ch] text-[1.52rem] sm:text-[1.88rem] lg:text-[2.08rem] xl:text-[2.22rem] leading-[1.03] tracking-[-0.038em]"
+                  descriptionClassName="max-w-[38rem] text-white/64"
                 />
               </Reveal>
               <Reveal delay={0.08}>
                 <div className="rounded-[1.9rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
                   Если нужно отправить посылку, подключить доставку для компании
-                  или обсудить работу с интернет-магазином, можно сразу перейти в
-                  нужный раздел и оставить заявку.
+                  или обсудить работу с интернет-магазином, можно сразу выбрать
+                  подходящее направление и быстро оставить заявку.
                 </div>
               </Reveal>
             </div>
@@ -228,7 +232,7 @@ export default function HomePage() {
                     <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/42">
                       {item.kicker}
                     </p>
-                    <h2 className="display-font mt-5 max-w-[14ch] text-[1.42rem] leading-[1.08] font-semibold tracking-[-0.038em] text-white sm:text-[1.52rem]">
+                    <h2 className="display-font text-balance mt-5 max-w-[14ch] text-[1.42rem] leading-[1.08] font-semibold tracking-[-0.038em] text-white sm:text-[1.52rem]">
                       {item.title}
                     </h2>
                     <p className="copy-justify mt-4 max-w-[28rem] text-[0.98rem] leading-7 text-white/66">
@@ -253,9 +257,9 @@ export default function HomePage() {
                 eyebrow="Путь клиента"
                 title="Работа с заявкой идёт по понятным шагам: от запроса до запуска"
                 description="Такой подход подходит и для частного запроса, и для корпоративной доставки, и для e-commerce."
-                className="max-w-[42rem]"
-                titleClassName="max-w-[15ch] text-[1.62rem] sm:text-[1.96rem] lg:text-[2.22rem] xl:text-[2.42rem] leading-[1.01] tracking-[-0.044em]"
-                descriptionClassName="max-w-[33rem]"
+                className="max-w-[44rem]"
+                titleClassName="max-w-[17ch] text-[1.58rem] sm:text-[1.92rem] lg:text-[2.16rem] xl:text-[2.34rem] leading-[1.03] tracking-[-0.04em]"
+                descriptionClassName="max-w-[37rem]"
               />
             </Reveal>
             <div className="space-y-4 lg:pt-1">
@@ -267,7 +271,7 @@ export default function HomePage() {
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                     Шаг {index + 1}
                   </p>
-                  <h3 className="display-font mt-4 text-[1.5rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
+                  <h3 className="display-font text-balance mt-4 text-[1.5rem] leading-[1.06] font-semibold tracking-[-0.04em] text-foreground">
                     {step.title}
                   </h3>
                   <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{step.description}</p>
@@ -286,6 +290,9 @@ export default function HomePage() {
                 eyebrow="Контакты и реквизиты"
                 title="Все основные контакты и реквизиты собраны в одном месте"
                 description="Если нужно быстро связаться с нами или проверить данные компании, всё важное доступно на одной странице."
+                className="max-w-[44rem]"
+                titleClassName="max-w-[18ch] lg:text-[2.52rem]"
+                descriptionClassName="max-w-[39rem]"
               />
               <div className="grid gap-4 sm:grid-cols-2">
                 {detailsCards.map((card) => (
@@ -354,9 +361,9 @@ export default function HomePage() {
                   Важно
                 </p>
                 <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-white/68">
-                  Мы отдельно показываем, что фулфилмент и обычная доставка решают
-                  разные задачи. Это помогает объяснять услуги честно и не обещать
-                  лишнего.
+                  Фулфилмент и обычная доставка подходят для разных задач.
+                  Поможем выбрать нужный формат спокойно, по делу и без лишних
+                  обещаний.
                 </p>
               </div>
             </div>
@@ -389,7 +396,7 @@ export default function HomePage() {
                     href="/documents-delivery"
                     className="rounded-[1.5rem] border border-foreground/8 bg-white/70 p-5 hover:border-brand/24"
                   >
-                    <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="display-font text-balance text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
                       Доставка документов
                     </p>
                     <p className="copy-justify mt-3 text-sm leading-6 text-muted">
@@ -400,7 +407,7 @@ export default function HomePage() {
                     href="/calculate"
                     className="rounded-[1.5rem] border border-foreground/8 bg-white/70 p-5 hover:border-brand/24"
                   >
-                    <p className="display-font text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
+                    <p className="display-font text-balance text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
                       Расчёт логистики
                     </p>
                     <p className="copy-justify mt-3 text-sm leading-6 text-muted">

@@ -61,9 +61,7 @@ export default function ContactsPage() {
                     {item.value}
                   </p>
                   <p className="copy-justify mt-3 text-sm leading-6 text-muted">
-                    {item.placeholder
-                      ? "Контакт уточняется. Перед публикацией можно поставить актуальные данные."
-                      : "Подходит для быстрого обращения по доставке, расчёту или подключению услуг."}
+                    Подходит для быстрого обращения по доставке, расчёту или подключению услуг.
                   </p>
                 </a>
               ))}
@@ -77,9 +75,9 @@ export default function ContactsPage() {
                 {companyInfo.address}
               </p>
               <p className="copy-justify mt-4 text-sm leading-6 text-muted">
-                Юридический адрес размещён отдельно для удобства. По вопросам
-                доставки и подключения услуг быстрее всего написать или позвонить
-                через контакты выше.
+                Если нужно проверить данные компании, юридический адрес указан
+                отдельно. По вопросам доставки и подключения услуг удобнее всего
+                сразу написать или позвонить через контакты выше.
               </p>
             </div>
           </div>
@@ -92,12 +90,10 @@ export default function ContactsPage() {
               <p className="mt-4 text-3xl font-semibold tracking-[-0.05em]">
                 {contactChannels.hours.value}
               </p>
-              {contactChannels.hours.placeholder ? (
-                <p className="copy-justify mt-4 text-sm text-white/60">
-                  График можно уточнить перед публикацией, если у конкретного офиса
-                  другой режим работы.
-                </p>
-              ) : null}
+              <p className="copy-justify mt-4 text-sm text-white/60">
+                Если планируете визит или звонок, лучше заранее уточнить удобное
+                время обращения.
+              </p>
             </div>
 
             <div className="surface-card section-shell rounded-[2.25rem] border border-foreground/8 p-6 sm:p-8">

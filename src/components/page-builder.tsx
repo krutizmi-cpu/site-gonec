@@ -43,18 +43,18 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
   const hasEditorialHeroArtwork = imagePages.includes(page.slug);
   const heroTitleClassName =
     page.slug === "private"
-      ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+      ? "max-w-[13ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
       : page.slug === "business"
-        ? "max-w-[12ch] text-[1.92rem] sm:text-[2.3rem] lg:text-[2.72rem] xl:text-[3.02rem]"
+      ? "max-w-[12ch] text-[1.92rem] sm:text-[2.3rem] lg:text-[2.72rem] xl:text-[3.02rem]"
       : page.slug === "online-stores"
-        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+        ? "max-w-[13ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
       : page.slug === "marketplaces"
-        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+        ? "max-w-[13ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
       : page.slug === "fulfillment"
-        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+        ? "max-w-[13ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
       : page.slug === "international"
-        ? "max-w-[12ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
-      : "max-w-[12ch] text-[2.08rem] sm:text-[2.6rem] lg:text-[3.05rem] xl:text-[3.45rem]";
+        ? "max-w-[13ch] text-[1.54rem] sm:text-[1.88rem] lg:text-[2.18rem] xl:text-[2.42rem]"
+      : "max-w-[13ch] text-[2.08rem] sm:text-[2.6rem] lg:text-[3.05rem] xl:text-[3.45rem]";
   const heroImageClass =
     page.slug === "private"
       ? "object-cover object-center scale-[1.14]"
@@ -256,7 +256,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                       0{index + 1}
                     </span>
                   </div>
-                  <h3 className="display-font max-w-[16ch] text-[1.34rem] leading-[1.1] font-semibold tracking-[-0.03em] text-foreground">
+                  <h3 className="display-font text-balance max-w-[16ch] text-[1.34rem] leading-[1.1] font-semibold tracking-[-0.03em] text-foreground">
                     {item.title}
                   </h3>
                   <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{item.description}</p>
@@ -281,7 +281,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                       index === 1 ? "bg-white/9" : "bg-white/5"
                     }`}
                   >
-                    <h3 className="display-font max-w-[16ch] text-[1.3rem] leading-[1.1] font-semibold tracking-[-0.028em] text-white">
+                    <h3 className="display-font text-balance max-w-[16ch] text-[1.3rem] leading-[1.1] font-semibold tracking-[-0.028em] text-white">
                       {item.title}
                     </h3>
                     <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-white/66">
@@ -314,7 +314,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                     <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
                       Шаг {index + 1}
                     </p>
-                    <h3 className="display-font mt-4 max-w-[16ch] text-[1.34rem] leading-[1.1] font-semibold tracking-[-0.03em] text-foreground">
+                    <h3 className="display-font text-balance mt-4 max-w-[16ch] text-[1.34rem] leading-[1.1] font-semibold tracking-[-0.03em] text-foreground">
                       {step.title}
                     </h3>
                     <p className="copy-justify mt-4 text-[0.98rem] leading-7 text-muted">{step.description}</p>
@@ -352,7 +352,7 @@ export function MarketingPageTemplate({ page }: { page: MarketingPage }) {
                     key={item.slug}
                     className="rounded-[1.5rem] border border-foreground/8 bg-white/80 p-5"
                   >
-                    <p className="display-font text-[1.18rem] font-semibold tracking-[-0.028em] text-foreground">
+                    <p className="display-font text-balance text-[1.18rem] font-semibold tracking-[-0.028em] text-foreground">
                       {item.label}
                     </p>
                     <p className="copy-justify mt-3 text-sm leading-6 text-muted">{item.description}</p>

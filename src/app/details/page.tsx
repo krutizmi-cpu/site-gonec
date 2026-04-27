@@ -18,8 +18,11 @@ export default function DetailsPage() {
             <SectionHeading
               eyebrow="Реквизиты"
               title="Реквизиты компании"
-              description="Здесь собраны основные юридические данные ООО «Гонецъ»."
+              description="Основные юридические данные ООО «Гонецъ» для проверки компании и оформления документов."
               inverse
+              className="max-w-[40rem]"
+              titleClassName="max-w-[14ch] lg:text-[2.48rem]"
+              descriptionClassName="max-w-[34rem]"
             />
             <div className="copy-justify mt-8 rounded-[1.8rem] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/68">
               Эти данные могут понадобиться при оформлении документов, проверке

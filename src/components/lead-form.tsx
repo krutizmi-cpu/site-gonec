@@ -68,12 +68,12 @@ export function LeadForm({
               Оставить заявку
             </div>
             <div className="space-y-2">
-              <h3 className="display-font max-w-[12ch] text-[1.58rem] leading-[1.02] font-semibold tracking-[-0.04em] text-foreground sm:text-[1.9rem]">
-                Форма для предметной заявки
+              <h3 className="display-font max-w-[14ch] text-balance text-[1.58rem] leading-[1.02] font-semibold tracking-[-0.04em] text-foreground sm:text-[1.9rem]">
+                Расскажите, какая доставка вам нужна
               </h3>
               <p className="copy-justify max-w-xl text-sm leading-6 text-muted sm:text-[0.98rem]">
-                Оставьте задачу в свободной форме. Дальше можно быстро перейти к
-                расчёту, уточнению деталей или спокойному обратному звонку.
+                Достаточно коротко описать задачу. Мы поможем подобрать формат,
+                уточнить детали и предложим следующий удобный шаг.
               </p>
             </div>
           </div>

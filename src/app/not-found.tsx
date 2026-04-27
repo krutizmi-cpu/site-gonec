@@ -8,7 +8,7 @@ export default function NotFound() {
           <SectionHeading
             eyebrow="404"
             title="Страница не найдена"
-            description="Проверьте адрес или вернитесь на главную. Основные разделы сайта доступны из верхней навигации."
+            description="Проверьте адрес страницы или вернитесь на главную. Оттуда можно быстро перейти к нужной услуге или в контакты."
           />
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <ButtonLink href="/">На главную</ButtonLink>

@@ -65,7 +65,7 @@ export function SectionHeading({
       {description ? (
         <p
           className={cn(
-            "copy-justify max-w-2xl text-[0.98rem] leading-7 sm:text-[1.02rem]",
+            "copy-justify max-w-[38rem] text-[0.98rem] leading-7 sm:text-[1.02rem]",
             inverse ? "text-white/70" : "text-muted",
             descriptionClassName,
           )}
